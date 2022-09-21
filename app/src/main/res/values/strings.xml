@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">Administrador Financeiro</string>
+    <string name="menuConta">Contas a pagar</string>
+    <string name="menuAbastecimento">Abastecimento</string>
+    <string name="menuExtratoConta">Extrato financeiro</string>
+    <string name="menuExtratoAbastecimento">Extrato Abastecimento</string>
+    <string name="menuSaque">Saque</string>
+    <string name="menuSair">Sair</string>
+    <string name="menuConfiguracao">Configuraçoes</string>
+    <string name="menuReceita">Receitas</string>
+
+    <string name="labelReceita">Receitas</string>
+    <string name="hintValor">Digite o valor:</string>
+    <string name="data">Selecione uma data:</string>
+    <string name="hintDate">Data:</string>
+    <string name="ok">Ok:</string>
+
+    <string name="Entrada">Selecione uma entrada:</string>
+    <string name="despesa">Despesas</string>
+    <string name="conta">Selecione uma conta:</string>
+    <string name="hintConta">Nova conta:</string>
+
+    <string name="abastecimento">Abastecimento</string>
+    <string name="hintVlLitro">Valor do litro:</string>
+    <string name="hintVlTotal">Total R$:</string>
+    <string name="hintLTotal">Total de litros:</string>
+    <string name="hintKm">Km percorido:</string>
+    <string name="hintPosto">Novo posto ou selecione um:</string>
+    <string name="veicolo">Selecione um veicolo</string>
+    <string name="Hodometro">Hodometro</string>
+
+    <string name="formaPagamento">Forma de pagamento</string>
+    <string name="pagamentoDinheiro">Dinheiro</string>
+    <string name="pagamentoDigital">Pagamento Eletronico</string>
+
+    <string name="salvar">Salvar</string>
+    <string name="cancel">Cancelar:</string>
+
+    <string name="falha">Falha no cadastro</string>
+    <string name="slVei">Selecione um veicolo:</string>
+    <string name="setPosto">Selecione um posto ou adicione um novo:</string>
+</resources>

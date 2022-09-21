@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fundoTela"
+    android:orientation="vertical"
+    android:layout_margin="5dp"
+    android:layout_marginStart="5dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    tools:context=".Views.ContasActivity">
+
+  <TextView
+      android:id="@+id/labelTitulo"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:text="@string/despesa"
+      android:textAlignment="center"
+      android:textColor="@color/black"
+      android:textSize="24sp"
+      android:textStyle="bold" />
+
+  <TextView
+      android:id="@+id/textView2"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:text="@string/conta"
+      android:textAlignment="center"
+      android:textColor="@color/black"
+      android:textSize="24sp"
+      android:textStyle="bold" />
+
+  <Spinner
+      android:id="@+id/spinnerConta"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:entries="@array/receita_array"
+      android:textAlignment="center"
+      android:textColor="@color/black"
+      android:minHeight="48dp"
+      android:prompt="@string/cancel"
+      android:textSize="24sp"
+      android:textStyle="bold"
+      android:ellipsize="marquee"
+      android:background="@color/purple_200"/>
+
+
+  <EditText
+      android:id="@+id/idNovaConta"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:hint="@string/hintConta"
+      android:inputType="text"
+      android:textColorHighlight="@color/cinzaHint"
+      android:textColorHint="@color/cinzaHint"
+      android:textSize="24sp" />
+
+  <TextView
+      android:id="@+id/textView"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:text="@string/data"
+      android:textAlignment="center"
+      android:textColor="@color/black"
+      android:textSize="24sp"
+      android:textStyle="bold" />
+
+  <Button
+      android:id="@+id/idDate"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:hint="@string/hintDate"
+      android:onClick="DateClick"
+      android:padding="15dp"
+      android:textColorHint="@color/black"
+      android:textSize="24sp"
+      android:textStyle="bold" />
+
+  <EditText
+      android:id="@+id/idValor"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:hint="@string/hintValor"
+      android:inputType="number|numberDecimal"
+      android:textColorHighlight="@color/cinzaHint"
+      android:textColorHint="@color/cinzaHint"
+      android:textSize="24sp" />
+
+  <Button
+      android:id="@+id/idSalvar"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:backgroundTint="@color/verde"
+      android:onClick="salvarClick"
+      android:text="@string/salvar"
+      android:textColor="@color/black"
+      android:textSize="20sp" />
+
+</LinearLayout>

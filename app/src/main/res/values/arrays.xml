@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="receita_array">
+        <item>Selecione</item>
+        <item>Salario</item>
+        <item>Doação</item>
+        <item>Extra</item>
+        <item>Outro</item>
+    </string-array>
+    <string-array name="posto_array">
+        <item>Selecione</item>
+        <item>Salario</item>
+        <item>Doação</item>
+        <item>Extra</item>
+        <item>Outro</item>
+    </string-array>
+
+</resources>

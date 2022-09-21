@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:layout_marginStart="5dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:background="@color/fundoTela"
+    android:orientation="vertical"
+    tools:context=".Views.AbastecimentoActivity">
+
+    <TextView
+        android:id="@+id/labelTitulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/abastecimento"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <Spinner
+        android:id="@+id/spinnerVeicolo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/purple_200"
+        android:contentDescription="@string/Entrada"
+        android:ellipsize="marquee"
+        android:minHeight="48dp"
+        android:prompt="@string/cancel"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/idTotalLitros"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hintLTotal"
+        android:inputType="number|numberDecimal"
+        android:textColorHighlight="@color/cinzaHint"
+        android:textColorHint="@color/cinzaHint"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/idValorLitro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hintVlLitro"
+        android:inputType="number|numberDecimal"
+        android:textColorHighlight="@color/cinzaHint"
+        android:textColorHint="@color/cinzaHint"
+        android:textSize="24sp" />
+
+
+    <EditText
+        android:id="@+id/idValorTotal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hintVlTotal"
+        android:inputType="number|numberDecimal"
+        android:textColorHighlight="@color/cinzaHint"
+        android:textColorHint="@color/cinzaHint"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/formaPagamento"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <RadioGroup
+        android:id="@+id/idFormaPagamento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radioDinheiro"
+            android:layout_width="195dp"
+            android:layout_height="wrap_content"
+            android:text="@string/pagamentoDinheiro" />
+
+        <RadioButton
+            android:id="@+id/radioEletronico"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/pagamentoDigital" />
+    </RadioGroup>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/data"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/idDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hintDate"
+        android:onClick="DateClick"
+        android:padding="15dp"
+        android:textColorHint="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/conta"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/idNovoPosto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hintPosto"
+        android:inputType="text"
+        android:textColorHighlight="@color/cinzaHint"
+        android:textColorHint="@color/cinzaHint"
+        android:textSize="24sp" />
+
+    <Spinner
+        android:id="@+id/spinnerPosto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/purple_200"
+        android:ellipsize="marquee"
+        android:entries="@array/posto_array"
+        android:minHeight="48dp"
+        android:prompt="@string/cancel"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/idKmRodado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hintKm"
+        android:inputType="number|numberDecimal"
+        android:textColorHighlight="@color/cinzaHint"
+        android:textColorHint="@color/cinzaHint"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/LabelHodometro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:minHeight="48dp"
+        android:onClick="DateClick"
+        android:text="@string/Hodometro"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/idSalvar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/verde"
+        android:onClick="salvarClick"
+        android:text="@string/salvar"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/idCancelar"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:backgroundTint="@color/amarelo"
+        android:minHeight="48dp"
+        android:onClick="cancelar"
+        android:text="@string/cancel"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+</LinearLayout>
+</ScrollView>
