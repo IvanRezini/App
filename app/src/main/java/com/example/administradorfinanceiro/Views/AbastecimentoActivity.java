@@ -122,7 +122,7 @@ public class AbastecimentoActivity extends AppCompatActivity {
             d.getVeicolo(Integer.valueOf(x[0]).intValue());
         }
     }
-
+Aquiiii
     public void salvarClick(View v) {
 
         hodometro.setText("0000");
