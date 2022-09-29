@@ -8,6 +8,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -72,7 +73,20 @@ public class AbastecimentoActivity extends AppCompatActivity {
         hodometro = (TextView) findViewById(R.id.LabelHodometro);
         pgDinheiro = (RadioButton) findViewById(R.id.radioDinheiro);
         pgEletronico = (RadioButton) findViewById(R.id.radioEletronico);
+        // Spinner click listener
+            AdapterView.OnItemSelectedListener vv = new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+String item =veicolo.getSelectedItem().toString();
+                    Toast.makeText(AbastecimentoActivity.this, "selecionou "+item, Toast.LENGTH_SHORT).show();
+                }
 
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+
+                }
+            };
+            veicolo.setOnItemSelectedListener(vv);
         this.setarMenus();
 
     }
@@ -122,7 +136,7 @@ public class AbastecimentoActivity extends AppCompatActivity {
             d.getVeicolo(Integer.valueOf(x[0]).intValue());
         }
     }
-Aquiiii
+
     public void salvarClick(View v) {
 
         hodometro.setText("0000");
