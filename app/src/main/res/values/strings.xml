@@ -26,7 +26,6 @@
     <string name="hintLTotal">Total de litros:</string>
     <string name="hintKm">Km percorido:</string>
     <string name="hintPosto">Novo posto ou selecione um:</string>
-    <string name="veicolo">Selecione um veicolo</string>
     <string name="Hodometro">Hodometro</string>
 
     <string name="formaPagamento">Forma de pagamento</string>
@@ -36,7 +35,4 @@
     <string name="salvar">Salvar</string>
     <string name="cancel">Cancelar:</string>
 
-    <string name="falha">Falha no cadastro</string>
-    <string name="slVei">Selecione um veicolo:</string>
-    <string name="setPosto">Selecione um posto ou adicione um novo:</string>
 </resources>

@@ -10,16 +10,9 @@
     <color name="verde">#057809</color>
     <color name="verdeClaro">#46D54B</color>
     <color name="amarelo">#F1D412</color>
-    <color name="azul">#155F9C</color>
-   <color name="vermelho">#BD1414</color>
+    <color name="vermelho">#BD1414</color>
     <color name="roxo">#9A1AAF</color>
     <color name="cinzaHint">#EE0C0A0E</color>
     <color name="fundoTela">#6183EA67</color>
-    <color name="background_gradient_start">#000000</color>
-    <color name="background_gradient_end">#DDDDDD</color>
-    <color name="fastlane_background">#0096a6</color>
-    <color name="search_opaque">#ffaa3f</color>
-    <color name="selected_background">#ffaa3f</color>
-    <color name="default_background">#3d3d3d</color>
 
 </resources>

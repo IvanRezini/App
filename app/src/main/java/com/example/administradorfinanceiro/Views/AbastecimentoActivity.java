@@ -6,7 +6,6 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -32,7 +31,6 @@ import com.example.administradorfinanceiro.utilidades.SetarMenu;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 
 public class AbastecimentoActivity extends AppCompatActivity {
 
@@ -332,7 +330,7 @@ String item =veicolo.getSelectedItem().toString();
     }
 
     public void cancelar() {
-        ManipularData m = new ManipularData();
+       /* ManipularData m = new ManipularData();
         String d = m.obterData("dd/MM/yyyy");
         date.setText(d);
         DatePickerDialog datePickerDialog;
@@ -344,7 +342,7 @@ String item =veicolo.getSelectedItem().toString();
         Spinner veicolo;
         pgEletronico.setSelected(false);
         pgDinheiro.setSelected(false);
-        hodometro.setText("");
+        hodometro.setText("");*/
     }
 
 }
