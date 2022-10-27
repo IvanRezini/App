@@ -21,7 +21,7 @@ public class ConfigurcaoActivity extends AppCompatActivity {
         m.setHodometro("55555");
         m.setName("tr4 drty");
         v.Inserir(m);
-        for (int i=0;i<10;i++){
+        for (int i=0;i<1;i++){
         PostoDao p = new PostoDao(this);
         PostoModel po =new PostoModel();
         po.setName(i+" - artes postos fiacalo");

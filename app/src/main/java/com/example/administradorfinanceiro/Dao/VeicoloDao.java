@@ -78,7 +78,7 @@ public class VeicoloDao extends ContextoDb {
         VeicoloModel v = new VeicoloModel();
         StringBuffer sql = new StringBuffer();
         sql.append(" SELECT * FROM tbVeicolo ");
-        sql.append(" FROM Id = ?");
+        sql.append(" WHERE Id = ?");
         String[] parametro = new String[1];
         parametro[0] = String.valueOf(codigo);
         Cursor result = conexao.rawQuery(sql.toString(), parametro);

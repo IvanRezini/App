@@ -61,10 +61,10 @@ public class PostoDao extends ContextoDb{
 
         return pp;
     }
-    public PostoModel GetName(String name)
+    public PostoModel GetName()
     {PostoModel pp = new PostoModel();
         StringBuffer sql = new StringBuffer();
-        sql.append(" SELECT * FROM tbPosto WHERE Name = "+name);
+        sql.append(" SELECT * FROM tbPosto ORDER BY id DESC");
         Cursor result = conexao.rawQuery(sql.toString(), null);
         result.moveToFirst();
         pp.setId(result.getInt(result.getColumnIndexOrThrow("Id")));
