@@ -33,6 +33,11 @@
     <string name="pagamentoDigital">Pagamento Eletronico</string>
 
     <string name="salvar">Salvar</string>
-    <string name="cancel">Cancelar:</string>
+    <string name="cancel">Cancelar</string>
+
+    <string name="veicolo">Veicolos</string>
+    <string name="posto">Posto</string>
+    <string name="contas">Contas</string>
+    <string name="tituloConfiguracoa">Configurações:</string>
 
 </resources>

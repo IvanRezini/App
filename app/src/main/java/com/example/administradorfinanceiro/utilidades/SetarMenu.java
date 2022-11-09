@@ -3,8 +3,10 @@ package com.example.administradorfinanceiro.utilidades;
 import android.content.Context;
 import android.widget.ArrayAdapter;
 
+import com.example.administradorfinanceiro.Dao.ContasDao;
 import com.example.administradorfinanceiro.Dao.PostoDao;
 import com.example.administradorfinanceiro.Dao.VeicoloDao;
+import com.example.administradorfinanceiro.Model.ContasModel;
 import com.example.administradorfinanceiro.Model.PostoModel;
 import com.example.administradorfinanceiro.Model.VeicoloModel;
 import com.example.administradorfinanceiro.R;
@@ -45,5 +47,18 @@ public class SetarMenu {
         }
         return l;
     }
-
+    public static ArrayList spinnerConta(Context context) {
+        ContasDao v = new ContasDao(context);
+        List<ContasModel> list = new ArrayList<>();
+        list= v.Lista();
+        ArrayList<String> l =new ArrayList<String>();
+        ArrayAdapter<String> adapter;
+        l.add("Selecione uma conta:");
+        for (int i=0; i<list.size();i++){
+            ContasModel vm= new ContasModel();
+            vm= list.get(i);
+            l.add(" "+vm.getId()+" - "+vm.getName());
+        }
+        return l;
+    }
     }

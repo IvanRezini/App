@@ -18,7 +18,7 @@
     tools:context=".Views.AbastecimentoActivity">
 
     <TextView
-        android:id="@+id/labelTitulo"
+        android:id="@+id/titulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -131,17 +131,6 @@
         android:textSize="24sp"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/conta"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        android:textStyle="bold" />
-
     <EditText
         android:id="@+id/idNovoPosto"
         android:layout_width="match_parent"
@@ -158,13 +147,13 @@
         android:layout_height="wrap_content"
         android:background="@color/purple_200"
         android:ellipsize="marquee"
-        android:entries="@array/posto_array"
         android:minHeight="48dp"
         android:prompt="@string/cancel"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="24sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
         android:id="@+id/idKmRodado"
