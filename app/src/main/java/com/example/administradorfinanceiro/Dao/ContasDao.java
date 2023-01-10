@@ -40,6 +40,20 @@ public class ContasDao extends ContextoDb{
         }
         return msg;
     }
+    public String Update(ContasModel contasModel){
+        String msg = "";
+        ContentValues dataToInsert = new ContentValues();
+        dataToInsert.put("Name", contasModel.getName());
+        String where = "Id = ?";
+        String[] whereArgs = new String[]{String.valueOf(contasModel.getId())};
+        try {
+            conexao.update("tbContas", dataToInsert, where, whereArgs);
+        } catch (SQLException ex) {
+            msg = "Falha au atualizar conta";
+        }
+
+        return msg;
+    }
     public List<ContasModel> Lista() {
         List<ContasModel> list = new ArrayList<ContasModel>();
         StringBuffer sql = new StringBuffer();

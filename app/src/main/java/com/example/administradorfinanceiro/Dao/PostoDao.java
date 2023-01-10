@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.SQLException;
 import androidx.annotation.Nullable;
 import com.example.administradorfinanceiro.Model.PostoModel;
+import com.example.administradorfinanceiro.Model.VeicoloModel;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +33,20 @@ public class PostoDao extends ContextoDb{
         }catch (SQLException ex){
             msg="Falha no cadastro.";
         }
+        return msg;
+    }
+    public String Update(PostoModel postoMode){
+        String msg = "";
+        ContentValues dataToInsert = new ContentValues();
+        dataToInsert.put("Name", postoMode.getNome());
+        String where = "Id = ?";
+        String[] whereArgs = new String[]{String.valueOf(postoMode.getId())};
+        try {
+            conexao.update("tbPosto", dataToInsert, where, whereArgs);
+        } catch (SQLException ex) {
+            msg = "Falha au atualizar Hodometro";
+        }
+
         return msg;
     }
     public List<PostoModel> Lista() {

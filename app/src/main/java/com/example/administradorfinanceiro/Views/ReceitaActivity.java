@@ -1,5 +1,8 @@
 package com.example.administradorfinanceiro.Views;
 
+import static android.widget.Toast.LENGTH_LONG;
+import static android.widget.Toast.makeText;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
@@ -12,9 +15,11 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.example.administradorfinanceiro.Model.FinancasModel;
 import com.example.administradorfinanceiro.R;
 import com.example.administradorfinanceiro.utilidades.ManipularData;
 
+import java.text.DecimalFormat;
 import java.util.Calendar;
 
 public class ReceitaActivity extends AppCompatActivity {
@@ -66,22 +71,48 @@ public class ReceitaActivity extends AppCompatActivity {
     }
     public void salvarClick(View v) {
         AlertDialog.Builder builder = new AlertDialog.Builder(ReceitaActivity.this);
+        DecimalFormat dF = new DecimalFormat("0.000");
+       if(  origem.getSelectedItemPosition() > 0) {
+           if (valor.getText().toString().trim().length() > 0) {
+               valor.setText(dF.format((Float.valueOf(valor.getText().toString()).floatValue())) + "");
+               builder.setTitle("Confirmar");
+               builder.setMessage( "Data: " + date.getText() + "\nValor: " + valor.getText() +
+                       "\nOrigem: "+ origem.getSelectedItem().toString())
+                       .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                           public void onClick(DialogInterface dialog, int id) {
+                               salvar();
+                           }
+                       })
+                       .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                           public void onClick(DialogInterface dialog, int id) {
+                               // User cancelled the dialog
+                           }
+                       });
+               AlertDialog alertDialog = builder.create();
+               alertDialog.show();
+           } else {
+               makeText(this, "Informe um valor", LENGTH_LONG).show();
+           }
+       }else {
+           makeText(this, "Selecione uma origem.", LENGTH_LONG).show();
+       }
+    }
+    public void salvar() {
+        FinancasModel f =new FinancasModel();
+        f.setEntradaSaida("E");//  private String EntradaSaida;//E entrada S saida N para pagamento em dinheiro no qual ja foi sacado
+        String x[] = origem.getSelectedItem().toString().trim().split(" ");
+        f.setOrigem(Integer.valueOf(x[0]).intValue());//  private int Origem;//1 - Salario", "2 - Extra", "3 - Doação", "4 - Outro" Origem 5 significa um saque
+        f.setDate(date.getText().toString());
+        f.setValor(valor.getText());
 
-        builder.setTitle("confirmar");
-        builder.setMessage("Agora foi essa pora")
-                .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // START THE GAME!
-                    }
-                })
-                .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // User cancelled the dialog
-                    }
-                });
 
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
+
+
+
+
+
+
+
     }
 
 }

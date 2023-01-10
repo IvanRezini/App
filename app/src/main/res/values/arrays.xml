@@ -2,10 +2,10 @@
 <resources>
     <string-array name="receita_array">
         <item>Selecione</item>
-        <item>Salario</item>
-        <item>Doação</item>
-        <item>Extra</item>
-        <item>Outro</item>
+        <item> 1 - Salario</item>
+        <item> 2 - Extra</item>
+        <item> 3 - Doação</item>
+        <item> 4 - Outro</item>
     </string-array>
     <string-array name="posto_array">
         <item>Selecione</item>

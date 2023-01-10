@@ -62,13 +62,14 @@ public class VeicoloDao extends ContextoDb {
     public String Update(VeicoloModel v) {
         String msg = "";
         ContentValues dataToInsert = new ContentValues();
+        dataToInsert.put("Name", v.getName());
         dataToInsert.put("Hodometro", v.getHodometro());
-        String where = "id = ?";
+        String where = "Id = ?";
         String[] whereArgs = new String[]{String.valueOf(v.getId())};
         try {
             conexao.update("tbVeicolo", dataToInsert, where, whereArgs);
         } catch (SQLException ex) {
-            msg = "Falha au atualizar Hodometro";
+            msg = "Falha au atualizar Hodometro \n"+v.getName()+"\n"+v.getHodometro()+"\n"+v.getId();
         }
 
         return msg;

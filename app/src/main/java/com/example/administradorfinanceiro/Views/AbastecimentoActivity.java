@@ -57,7 +57,8 @@ public class AbastecimentoActivity extends AppCompatActivity {
     RadioButton pgDinheiro;
     RadioButton pgEletronico;
     RadioGroup formaPagamento;
-
+    TextView label1;
+    TextView label2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,7 +80,9 @@ public class AbastecimentoActivity extends AppCompatActivity {
         pgDinheiro = (RadioButton) findViewById(R.id.radioDinheiro);
         pgEletronico = (RadioButton) findViewById(R.id.radioEletronico);
         formaPagamento = (RadioGroup) findViewById(R.id.idFormaPagamento);
-      
+        label1=(TextView) findViewById(R.id.label1);
+        label2=(TextView) findViewById(R.id.label2);
+      this.limparCampos();
         /*
         Ouve o spiner Vicolo
          */
@@ -160,6 +163,7 @@ Pega o veicolo selecionado e busca o seu ultimo hodometro salvo
         VeicoloDao d = new VeicoloDao(this);
         String[] x;
         if (veicolo.getSelectedItemPosition() > 0) {
+            this.mostrarCampos();
             x = veicolo.getSelectedItem().toString().trim().split(" ");
             v = d.getVeicolo(Integer.valueOf(x[0]).intValue());
             hodometro.setText(v.getHodometro());
@@ -300,7 +304,7 @@ Verifica se todos os campos estão preechidos
     Formata os campos com tres casas apos a virgula
      */
     public void formatarCampos() {
-        DecimalFormat dF = new DecimalFormat("#.000");
+        DecimalFormat dF = new DecimalFormat("0.000");
         valorLitro.setText(dF.format((Float.valueOf(valorLitro.getText().toString()).floatValue())) + "");
         valorTotal.setText(dF.format((Float.valueOf(valorTotal.getText().toString()).floatValue())) + "");
         litroTotal.setText(dF.format((Float.valueOf(litroTotal.getText().toString()).floatValue())) + "");
@@ -364,6 +368,7 @@ Salva o abastecimento no banco de dados
         try {
             x = veicolo.getSelectedItem().toString().trim().split(" ");
             v.setId(Integer.valueOf(x[0]).intValue());
+            v.setName(x[2]);
             v.setHodometro((Float.valueOf(String.valueOf(kmPercorido.getText())).floatValue()) + (Float.valueOf((String.valueOf((hodometro.getText()))))) + "");
             String res = d.Update(v);
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -400,7 +405,36 @@ limpa os capos
         posto.setSelection(0);
         formaPagamento.clearCheck();
         hodometro.setText("");
+        date.setVisibility(View.GONE);
+        valor.setVisibility(View.GONE);
+        litroTotal.setVisibility(View.GONE);
+        valorLitro.setVisibility(View.GONE);
+        valorTotal.setVisibility(View.GONE);
+        novoPosto.setVisibility(View.GONE);
+        posto.setVisibility(View.GONE);
+        radio.setVisibility(View.GONE);
+        hodometro.setVisibility(View.GONE);
+        salvar.setVisibility(View.GONE);
+        label1.setVisibility(View.GONE);
+        label2.setVisibility(View.GONE);
+
     }
+    public void mostrarCampos()
+    {
+        date.setVisibility(View.VISIBLE);
+        valor.setVisibility(View.VISIBLE);
+        litroTotal.setVisibility(View.VISIBLE);
+        valorLitro.setVisibility(View.VISIBLE);
+        valorTotal.setVisibility(View.VISIBLE);
+        novoPosto.setVisibility(View.VISIBLE);
+        posto.setVisibility(View.VISIBLE);
+        radio.setVisibility(View.VISIBLE);
+        hodometro.setVisibility(View.VISIBLE);
+        salvar.setVisibility(View.VISIBLE);
+        label1.setVisibility(View.VISIBLE);
+        label2.setVisibility(View.VISIBLE);
+    }
+
 /*
 ouve o botao cancelar
  */

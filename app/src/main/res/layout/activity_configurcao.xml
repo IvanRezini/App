@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/key"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/fundoTela"
@@ -25,6 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:focusable="auto"
             android:text="@string/tituloConfiguracoa"
             android:textAlignment="center"
             android:textColor="@color/black"
@@ -45,7 +47,7 @@
             android:id="@+id/idPosto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/amarelo"
+            android:backgroundTint="@color/purple_500"
             android:onClick="postoClick"
             android:text="@string/posto"
             android:textColor="@color/black"
@@ -61,16 +63,15 @@
             android:textColor="@color/black"
             android:textSize="20sp" />
 
-        <EditText
+        <TextView
             android:id="@+id/campo1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:enabled="true"
-            android:inputType="number|numberDecimal"
-            android:textColorHighlight="@color/cinzaHint"
-            android:textColorHint="@color/cinzaHint"
+            android:hint="xx"
+            android:textAlignment="center"
+            android:textColor="@color/black"
             android:textSize="24sp"
-            tools:ignore="SpeakableTextPresentCheck" />
+            android:textStyle="bold" />
 
         <Spinner
             android:id="@+id/spinnerSelecao"
@@ -89,7 +90,7 @@
             android:id="@+id/campo2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number|numberDecimal"
+            android:inputType="none"
             android:textColorHighlight="@color/cinzaHint"
             android:textColorHint="@color/cinzaHint"
             android:textSize="24sp"
@@ -110,6 +111,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
+            <Button
+                android:id="@+id/idExcluir"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:backgroundTint="@color/vermelho"
+                android:onClick="excluirClick"
+                android:text="@string/excluir"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/idSalvar"
