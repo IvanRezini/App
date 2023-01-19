@@ -15,6 +15,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.example.administradorfinanceiro.Dao.FinancasDao;
 import com.example.administradorfinanceiro.Model.FinancasModel;
 import com.example.administradorfinanceiro.R;
 import com.example.administradorfinanceiro.utilidades.ManipularData;
@@ -102,19 +103,25 @@ public class ReceitaActivity extends AppCompatActivity {
         f.setEntradaSaida("E");//  private String EntradaSaida;//E entrada S saida N para pagamento em dinheiro no qual ja foi sacado
         String x[] = origem.getSelectedItem().toString().trim().split(" ");
         f.setOrigem(Integer.valueOf(x[0]).intValue());//  private int Origem;//1 - Salario", "2 - Extra", "3 - Doação", "4 - Outro" Origem 5 significa um saque
+        f.setIdConta(0);// 0 Significa que não é um deposito
         f.setDate(date.getText().toString());
-        f.setValor(valor.getText());
-
-
-
-
-
-
-
-
-
+        f.setValor(valor.getText().toString());
+        FinancasDao d = new FinancasDao(this);
+        try {
+            d.Inserir(f);
+            makeText(this, "Entrada salva", LENGTH_LONG).show();
+            limparCampos();
+        }catch (Exception e){
+            makeText(this, "Falha ao salvar.\n"+e, LENGTH_LONG).show();
+        }
     }
-
+    public  void limparCampos(){
+        ManipularData m = new ManipularData();
+        String d = m.obterData("dd/MM/yyyy");
+        date.setText(d);
+        valor.setText("");
+        origem.setSelection(0);
+    }
 }
 ///Site spiner
 ///https://jafapps.com.br/spinner-android-studio/

@@ -2,8 +2,8 @@ package com.example.administradorfinanceiro.Model;
 
 public class FinancasModel {
     private int Id;
-    private int IdConta;
-    private int Origem;//1 - Salario", "2 - Extra", "3 - Doação", "4 - Outro" Origem 5 significa um saque
+    private int IdConta; // Id 0 è uma entrada
+    private int Origem;//1 - Salario", "2 - Extra", "3 - Doação", "4 - Outro" Origem 5 significa um saque, 0 é uma conta paga
     private String Date;
     private String Valor;
     private String EntradaSaida;//E entrada S saida N para pagamento em dinheiro no qual ja foi sacado

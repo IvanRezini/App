@@ -137,6 +137,7 @@
         android:layout_height="wrap_content"
         android:hint="@string/hintPosto"
         android:inputType="text"
+        android:onClick="LimparSpiner"
         android:textColorHighlight="@color/cinzaHint"
         android:textColorHint="@color/cinzaHint"
         android:textSize="24sp" />

@@ -82,6 +82,18 @@ public class ContasDao extends ContextoDb{
 
         return pp;
     }
+    public ContasModel GetName()
+    {
+        ContasModel pp = new ContasModel();
+        StringBuffer sql = new StringBuffer();
+        sql.append(" SELECT * FROM tbContas ORDER BY id DESC");
+        Cursor result = conexao.rawQuery(sql.toString(), null);
+        result.moveToFirst();
+        pp.setId(result.getInt(result.getColumnIndexOrThrow("Id")));
+        pp.setName(result.getString(result.getColumnIndexOrThrow("Name")));
+
+        return pp;
+    }
 }
     /*private int Id;
     private String Name;*/

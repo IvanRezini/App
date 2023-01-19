@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="receita_array">
+    <string-array name="receita_array">//  private int Origem;//1 - Salario", "2 - Extra", "3 - Doação", "4 - Outro" Origem 5 significa um saque
         <item>Selecione</item>
         <item> 1 - Salario</item>
         <item> 2 - Extra</item>
@@ -8,11 +8,7 @@
         <item> 4 - Outro</item>
     </string-array>
     <string-array name="posto_array">
-        <item>Selecione</item>
-        <item>Salario</item>
-        <item>Doação</item>
-        <item>Extra</item>
-        <item>Outro</item>
+
     </string-array>
 
 </resources>

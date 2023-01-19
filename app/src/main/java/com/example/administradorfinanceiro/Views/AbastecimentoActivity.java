@@ -115,6 +115,12 @@ Chama o evento para setar os menus
         this.setarMenus();
 
     }
+    /*
+    limpar o spiner posto
+     */
+    public void LimparSpiner(View v) {
+        posto.setSelection(0);
+    }
 /*
 Selecionador de datas
  */
@@ -251,7 +257,7 @@ Verifica se todos os campos estão preechidos
                                 }
                             }
                         } else {
-                            makeText(this, "Selecione a forma de pagamento\n aqui " + kmPercorido.getText().toString().length(), LENGTH_LONG).show();
+                            makeText(this, "Selecione a forma de pagamento", LENGTH_LONG).show();
                         }
                     } else {
                         makeText(this, "Informe valor do litro", LENGTH_LONG).show();
