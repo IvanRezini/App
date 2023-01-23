@@ -3,13 +3,9 @@ package com.example.administradorfinanceiro.Views;
 import static android.widget.Toast.LENGTH_LONG;
 import static android.widget.Toast.makeText;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
-import android.app.DatePickerDialog;
 import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -17,10 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Spinner;
-import android.widget.Switch;
 import android.widget.TextView;
 
 import com.example.administradorfinanceiro.Dao.ContasDao;
@@ -30,7 +23,7 @@ import com.example.administradorfinanceiro.Model.ContasModel;
 import com.example.administradorfinanceiro.Model.PostoModel;
 import com.example.administradorfinanceiro.Model.VeicoloModel;
 import com.example.administradorfinanceiro.R;
-import com.example.administradorfinanceiro.utilidades.SetarMenu;
+import com.example.administradorfinanceiro.Utilidades.SetarMenu;
 
 import java.util.ArrayList;
 

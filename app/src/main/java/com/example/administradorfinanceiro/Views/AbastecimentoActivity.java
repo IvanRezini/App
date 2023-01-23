@@ -3,7 +3,6 @@ package com.example.administradorfinanceiro.Views;
 
 
 import static android.widget.Toast.LENGTH_LONG;
-import static android.widget.Toast.LENGTH_SHORT;
 import static android.widget.Toast.makeText;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,7 +21,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.administradorfinanceiro.Dao.AbastecimentoDao;
 import com.example.administradorfinanceiro.Dao.PostoDao;
@@ -31,8 +29,8 @@ import com.example.administradorfinanceiro.Model.AbastecimentoModel;
 import com.example.administradorfinanceiro.Model.PostoModel;
 import com.example.administradorfinanceiro.Model.VeicoloModel;
 import com.example.administradorfinanceiro.R;
-import com.example.administradorfinanceiro.utilidades.ManipularData;
-import com.example.administradorfinanceiro.utilidades.SetarMenu;
+import com.example.administradorfinanceiro.Utilidades.ManipularData;
+import com.example.administradorfinanceiro.Utilidades.SetarMenu;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;

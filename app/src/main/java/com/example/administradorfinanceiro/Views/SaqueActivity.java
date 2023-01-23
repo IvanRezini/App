@@ -8,11 +8,8 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.example.administradorfinanceiro.Dao.PostoDao;
-import com.example.administradorfinanceiro.Dao.VeicoloDao;
 import com.example.administradorfinanceiro.Model.PostoModel;
-import com.example.administradorfinanceiro.Model.VeicoloModel;
 import com.example.administradorfinanceiro.R;
-import com.example.administradorfinanceiro.utilidades.ManipularData;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.example.administradorfinanceiro.utilidades;
+package com.example.administradorfinanceiro.Utilidades;
 
 import android.content.Context;
 import android.widget.ArrayAdapter;
@@ -9,7 +9,6 @@ import com.example.administradorfinanceiro.Dao.VeicoloDao;
 import com.example.administradorfinanceiro.Model.ContasModel;
 import com.example.administradorfinanceiro.Model.PostoModel;
 import com.example.administradorfinanceiro.Model.VeicoloModel;
-import com.example.administradorfinanceiro.R;
 
 import java.util.ArrayList;
 import java.util.List;
