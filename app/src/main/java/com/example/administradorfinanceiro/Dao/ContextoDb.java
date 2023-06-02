@@ -1,5 +1,9 @@
 package com.example.administradorfinanceiro.Dao;
 
+import static android.widget.Toast.LENGTH_LONG;
+import static android.widget.Toast.makeText;
+
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
@@ -7,6 +11,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
+
+import com.example.administradorfinanceiro.Model.ContasModel;
 
 import java.sql.SQLDataException;
 
@@ -41,6 +47,21 @@ public class ContextoDb extends SQLiteOpenHelper {
            db.execSQL(FinancasDao.CriarTabela());
             db.execSQL(ContasDao.CriarTabela());
             db.execSQL(AbastecimentoDao.CriarTabela());
+               ContentValues cv = new ContentValues();
+               /*
+Carega uma lista de contas pre definida
+ */
+               cv.put("Name",  "Abastecimento");
+               db.insert("tbContas", null, cv);
+               cv.put("Name",  "Luz");
+               db.insert("tbContas", null, cv);
+               cv.put("Name",  "Agua ");
+               db.insert("tbContas", null, cv);
+               cv.put("Name",  "Internet");
+               db.insert("tbContas", null, cv);
+               cv.put("Name",  "Mercado");
+               db.insert("tbContas", null, cv);
+
         }catch (Exception e){
             Log.e(e.toString()," Tabelas não foram criadas ");
         }

@@ -46,7 +46,8 @@ public class ReceitaActivity extends AppCompatActivity {
     }
 
     public void DateClick(View v) {
-        // calender class's instance and get current date , month and year from calender
+        // calender class's instance and get current date , month and year from calende
+        valor.clearFocus();
         final Calendar c = Calendar.getInstance();
         int mYear = c.get(Calendar.YEAR); // current year
         int mMonth = c.get(Calendar.MONTH); // current month

@@ -29,7 +29,12 @@ public class ContasDao extends ContextoDb{
 
         return sql;
     }
+
+
     public String Inserir(ContasModel contasModel){
+        ContentValues cv = new ContentValues();
+        cv.put("Name",  "Abastecimento");
+        conexao.insert("tbContas", null, cv);
         String msg="";
         ContentValues contentValues = new ContentValues();
         contentValues.put("Name",contasModel.getName());

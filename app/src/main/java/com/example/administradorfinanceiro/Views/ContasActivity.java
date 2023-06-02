@@ -94,6 +94,8 @@ public class ContasActivity extends AppCompatActivity {
         ArrayAdapter<String> adapterC;
         adapterC = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, c);
         conta.setAdapter(adapterC);
+        valor.clearFocus();
+        novaConta.clearFocus();
     }
 
     /*
@@ -200,7 +202,7 @@ public class ContasActivity extends AppCompatActivity {
                 x[0] = nova.getId() + "";
 
             } catch (Exception ex) {
-                makeText(this, "Falha ao inserir o nova conta\n" + ex.toString(), LENGTH_LONG).show();
+                    makeText(this, "Falha ao inserir o nova conta\n" + ex.toString(), LENGTH_LONG).show();
             }
         } else {
             x = conta.getSelectedItem().toString().trim().split(" ");

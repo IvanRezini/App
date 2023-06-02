@@ -44,7 +44,7 @@ public class FinancasDao extends ContextoDb{
     }
 }
 /*private int Id;
-private int IdConta;
+private int IdConta; Id 1 é um abastecimento
 private int Origem;//1 - Salario", "2 - Extra", "3 - Doação", "4 - Outro" Origem 5 significa um saque
 private String Date ;
 private String Valor;

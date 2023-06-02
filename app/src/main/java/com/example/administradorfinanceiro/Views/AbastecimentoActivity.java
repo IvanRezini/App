@@ -23,9 +23,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.administradorfinanceiro.Dao.AbastecimentoDao;
+import com.example.administradorfinanceiro.Dao.FinancasDao;
 import com.example.administradorfinanceiro.Dao.PostoDao;
 import com.example.administradorfinanceiro.Dao.VeicoloDao;
 import com.example.administradorfinanceiro.Model.AbastecimentoModel;
+import com.example.administradorfinanceiro.Model.FinancasModel;
 import com.example.administradorfinanceiro.Model.PostoModel;
 import com.example.administradorfinanceiro.Model.VeicoloModel;
 import com.example.administradorfinanceiro.R;
@@ -353,8 +355,17 @@ Salva o abastecimento no banco de dados
         ab.setValorLitro(valorLitro.getText().toString());
         ab.setLitrosTotal(litroTotal.getText().toString());
         AbastecimentoDao Ai = new AbastecimentoDao(this);
+
+        FinancasModel f =new FinancasModel();
+        f.setEntradaSaida("S");//  private String EntradaSaida;//E entrada S saida N para pagamento em dinheiro no qual ja foi sacado
+        f.setIdConta(1);// 1 Significa que não é um abastecimento
+        f.setDate(date.getText().toString());
+        f.setValor(valorTotal.getText().toString());
+        FinancasDao d = new FinancasDao(this);
+
         try {
             Ai.Inserir(ab);
+            d.Inserir(f);
             String dd=x[0];
             this.atualizaHodometro();
         } catch (Exception e) {
