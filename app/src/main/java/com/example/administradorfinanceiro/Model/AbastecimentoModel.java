@@ -8,7 +8,6 @@ public class AbastecimentoModel {
     private String ValorLitro ;
     private String Date ;
     private String kmPercorido ;
-    private String Hodometro ;
 
     public int getId() {
         return Id;
@@ -44,14 +43,6 @@ public class AbastecimentoModel {
 
     public String getValorLitro() {
         return ValorLitro;
-    }
-
-    public String getHodometro() {
-        return Hodometro;
-    }
-
-    public void setHodometro(String hodometro) {
-        Hodometro = hodometro;
     }
 
     public String getKmPercorido() {

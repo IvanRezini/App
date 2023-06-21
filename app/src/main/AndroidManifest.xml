@@ -19,6 +19,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AdministradorFinanceiro">
+
+        <meta-data
+            android:name="com.google.android.actions"
+            android:resource="@xml/tabela" />
+
+        <activity
+            android:name=".Views.RelatorioActivity"
+            android:exported="false" />
         <activity
             android:name=".Views.ConfigurcaoActivity"
             android:exported="false" />

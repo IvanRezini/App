@@ -23,26 +23,33 @@ public class AbastecimentoDao extends  ContextoDb{
                 " Posto INTEGER NOT NULL," +
                 " LitrosTotal VARCHAR NOT NULL," +
                 " ValorLitro VARCHAR NOT NULL," +
-                " Date DATE NOT NULL," +
-                " kmPercorido VARCHAR NOT NULL," +
-                " Hodometro VARCHAR NOT NULL" +
+                " Date VARCHAR NOT NULL," +
+                " kmPercorido VARCHAR NOT NULL" +
                 ");";
         return sql;
     }
     public String Inserir(AbastecimentoModel abastecimentoModel){
         String msg="";
         ContentValues contentValues = new ContentValues();
-        contentValues.put("Veicolo",abastecimentoModel.getVeicolo());
+       contentValues.put("Veicolo",abastecimentoModel.getVeicolo());
         contentValues.put("Posto",abastecimentoModel.getPosto());
         contentValues.put("LitrosTotal",abastecimentoModel.getLitrosTotal());
         contentValues.put("ValorLitro",abastecimentoModel.getValorLitro());
         contentValues.put("Date",abastecimentoModel.getDate());
         contentValues.put("kmPercorido",abastecimentoModel.getKmPercorido());
-        contentValues.put("Hodometro",abastecimentoModel.getHodometro());
+
+
+        /* contentValues.put("Veicolo",1);
+        contentValues.put("Posto",2);
+        contentValues.put("LitrosTotal","45");
+        contentValues.put("ValorLitro","4.23");
+        contentValues.put("Date","20/06/2320");
+        contentValues.put("kmPercorido","200");*/
         try{
+            msg = "tudo indo bem";
             conexao.insertOrThrow("tbAbastecimento",null,contentValues);
         }catch (SQLException ex){
-            msg="Falha no cadastro.";
+            msg="Falha no cadastro. " +ex;
         }
         return msg;
     }
