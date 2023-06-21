@@ -36,6 +36,13 @@ public class MainActivity extends AppCompatActivity {
         idConfiguracao = findViewById(R.id.idConfiguracao);
         idSair = findViewById(R.id.idSair);
 
+
+        idExtratoAbastecimento.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent it = new Intent(MainActivity.this, RelatorioActivity.class);
+                startActivity(it);
+            }
+        });
         idReceitas.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent it = new Intent(MainActivity.this, ReceitaActivity.class);

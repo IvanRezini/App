@@ -364,7 +364,14 @@ Salva o abastecimento no banco de dados
         FinancasDao d = new FinancasDao(this);
 
         try {
-            Ai.Inserir(ab);
+           String amm= Ai.Inserir(ab);
+
+                makeText(this, amm +" \n aqui", LENGTH_LONG).show();
+
+
+
+
+
             d.Inserir(f);
             String dd=x[0];
             this.atualizaHodometro();
