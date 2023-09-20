@@ -20,7 +20,6 @@ public class RelatorioDao extends ContextoDb {
 
     public Cursor relatorioAbstecimento(String query) {
 
-        SQLiteDatabase db = getReadableDatabase();
         Cursor c = conexao.rawQuery(query, null);
 
         return c;

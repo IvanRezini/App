@@ -34,6 +34,7 @@
 
     <string name="salvar">Salvar</string>
     <string name="cancel">Cancelar</string>
+    <string name="gerar">Gerar relatorio</string>
 
     <string name="veicolo">Veicolos</string>
     <string name="excluir">Excluir</string>
@@ -42,6 +43,9 @@
     <string name="tituloConfiguracoa">Configurações:</string>
     <string name="saque">Saquê:</string>
     <string name="title_activity_relatorio">Relatorio</string>
+    <string name="btn_relatorio_financeiro">Relatorio financeiro</string>
+    <string name="btn_relatorio_abastecimento">Relatorio abastecimento</string>
+
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
@@ -51,5 +55,7 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title_activity_tabela">tabela</string>
+    <string name="dataInicio">Selecione data do inicio :</string>
+    <string name="dataFim">Selecione data do fim:</string>
 
 </resources>

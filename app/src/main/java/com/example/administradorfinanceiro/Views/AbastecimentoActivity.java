@@ -359,19 +359,13 @@ Salva o abastecimento no banco de dados
         FinancasModel f =new FinancasModel();
         f.setEntradaSaida("S");//  private String EntradaSaida;//E entrada S saida N para pagamento em dinheiro no qual ja foi sacado
         f.setIdConta(1);// 1 Significa que não é um abastecimento
-        f.setDate(date.getText().toString());
+       ManipularData m = new ManipularData();
+        f.setDate(m.DataBanco(date.getText().toString()));
         f.setValor(valorTotal.getText().toString());
         FinancasDao d = new FinancasDao(this);
 
         try {
            String amm= Ai.Inserir(ab);
-
-                makeText(this, amm +" \n aqui", LENGTH_LONG).show();
-
-
-
-
-
             d.Inserir(f);
             String dd=x[0];
             this.atualizaHodometro();

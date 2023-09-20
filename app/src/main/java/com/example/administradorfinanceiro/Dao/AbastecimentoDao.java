@@ -46,7 +46,7 @@ public class AbastecimentoDao extends  ContextoDb{
         contentValues.put("Date","20/06/2320");
         contentValues.put("kmPercorido","200");*/
         try{
-            msg = "tudo indo bem";
+            msg = "";
             conexao.insertOrThrow("tbAbastecimento",null,contentValues);
         }catch (SQLException ex){
             msg="Falha no cadastro. " +ex;

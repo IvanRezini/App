@@ -43,6 +43,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(it);
             }
         });
+        idExtratoConta.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent it = new Intent(MainActivity.this, SelecaoRelatorioActivity.class);
+                startActivity(it);
+            }
+        });
         idReceitas.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent it = new Intent(MainActivity.this, ReceitaActivity.class);

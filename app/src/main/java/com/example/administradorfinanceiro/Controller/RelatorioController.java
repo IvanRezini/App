@@ -63,7 +63,7 @@ public class RelatorioController {
         double tL = 0;
         double tK = 0;
         int auxCor = 0;
-
+        DecimalFormat dF = new DecimalFormat("0.000");//mascara para formatar numeros
 
         while (c.moveToNext()) {
             a = new RelatorioAbastecimentoModel();
@@ -86,7 +86,6 @@ public class RelatorioController {
             double auxV = (Double.parseDouble(c.getString(c.getColumnIndexOrThrow("ValorLitro"))));
             double auxK = (Double.parseDouble(c.getString(c.getColumnIndexOrThrow("kmPercorido"))));
 
-            DecimalFormat dF = new DecimalFormat("0.000");//mascara para formatar numeros
             a.setValorTotal(dF.format((auxL * auxV)));
             a.setMedia(dF.format((auxK / auxL)));
 
@@ -104,22 +103,22 @@ public class RelatorioController {
         ab.add(a);
         a = new RelatorioAbastecimentoModel();
         a.setDate("Total gasto");
-        a.setValorLitro(tG+" $");
+        a.setValorLitro((dF.format(tG))+" $");
         a.setCor(Color.BLUE);
         ab.add(a);
         a = new RelatorioAbastecimentoModel();
         a.setDate("Total Litros");
-        a.setValorLitro(tL+"");
+        a.setValorLitro((dF.format(tL))+"");
         a.setCor(Color.BLUE);
         ab.add(a);
         a = new RelatorioAbastecimentoModel();
-        a.setDate("Total km rodado  "+c.getCount());
-        a.setValorLitro(tK+"");
+        a.setDate("Total km rodado");
+        a.setValorLitro((dF.format(tK))+" $");
         a.setCor(Color.BLUE);
         ab.add(a);
         a = new RelatorioAbastecimentoModel();
         a.setDate("Media geral");
-        a.setValorLitro((tK/tL)+"");
+        a.setValorLitro((dF.format(tK/tL))+"");
         a.setCor(Color.BLUE);
         ab.add(a);
         return ab;
