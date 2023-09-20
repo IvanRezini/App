@@ -102,11 +102,11 @@ public class RelatorioActivity extends AppCompatActivity {
         TextView ttex = this.coluna();
         ttex.setText(this.dataFim);
         linha.addView(ttex);
-        tabela.addView(linha);
+
         ttex = this.coluna();
         ttex.setText(this.dataInicio);
         linha.addView(ttex);
-        tabela.addView(linha);
+
         ttex = this.coluna();
         ttex.setText(this.relatorio+"    relatorio");
         linha.addView(ttex);
