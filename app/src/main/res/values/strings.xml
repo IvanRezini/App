@@ -2,8 +2,7 @@
     <string name="app_name">Administrador Financeiro</string>
     <string name="menuConta">Contas a pagar</string>
     <string name="menuAbastecimento">Abastecimento</string>
-    <string name="menuExtratoConta">Extrato financeiro</string>
-    <string name="menuExtratoAbastecimento">Extrato Abastecimento</string>
+    <string name="menuRelatorio">Relatorios</string>
     <string name="menuSaque">Saque</string>
     <string name="menuSair">Sair</string>
     <string name="menuConfiguracao">Configuraçoes</string>

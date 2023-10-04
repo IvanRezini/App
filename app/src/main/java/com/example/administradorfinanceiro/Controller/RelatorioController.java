@@ -6,6 +6,7 @@ import android.graphics.Color;
 
 import com.example.administradorfinanceiro.Dao.RelatorioDao;
 import com.example.administradorfinanceiro.Model.AbastecimentoModel;
+import com.example.administradorfinanceiro.Model.FinancasModel;
 import com.example.administradorfinanceiro.Model.RelatorioAbastecimentoModel;
 import com.example.administradorfinanceiro.Model.VeicoloModel;
 
@@ -14,6 +15,37 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RelatorioController {
+
+  public List<FinancasModel> relatorio(String inicio, String fim, int conta, Context co)///veicolo id 0 padrão para nem um veicolo selecionado
+    {  /*
+        Cria a query pra consulta
+         */
+        String auxInicio = inicio;
+        String auxFim = fim;
+        String query = "SELECT V.Name AS Veicolo, P.Name AS Posto, A.LitrosTotal, A.ValorLitro, A.Date, A.kmPercorido FROM" +
+                " tbAbastecimento AS A " +
+                " JOIN tbPosto AS P ON A.Posto = P.Id " +
+                "JOIN tbVeicolo AS V ON A.Veicolo = V.Id " +
+                "WHERE A.Date BETWEEN '"+
+                auxInicio + "' AND '" + auxFim + "'";
+
+        if (conta > 0) {
+            query += " AND A.Veicolo = " + conta;
+        }
+        query += " ORDER BY A.Date";
+        /*
+        faz a consulta
+         */
+        List<RelatorioAbastecimentoModel> ab = new ArrayList<RelatorioAbastecimentoModel>();
+        RelatorioAbastecimentoModel a = new RelatorioAbastecimentoModel();
+        Cursor c;
+        RelatorioDao r = new RelatorioDao(co);
+
+        c = r.relatorioAbstecimento(query);
+
+        return null;
+    }
+
 
 
     public List<RelatorioAbastecimentoModel> rela(String inicio, String fim, int veicolo, Context co)///veicolo id 0 padrão para nem um veicolo selecionado
@@ -50,7 +82,7 @@ public class RelatorioController {
         a.setValorTotal("Total ");
         a.setValorLitro("VlLitro ");
         a.setKmPercorido("KmTotal");
-        a.setCor(Color.BLUE);
+        a.setCor(Color.rgb(135,206,250));
         a.setDate("Data");
         a.setLitrosTotal("LiTotal");
         a.setPosto("Posto");
@@ -104,22 +136,20 @@ public class RelatorioController {
         a = new RelatorioAbastecimentoModel();
         a.setDate("Total gasto");
         a.setValorLitro((dF.format(tG))+" $");
-        a.setCor(Color.BLUE);
+        a.setCor(Color.rgb(135,206,250));
         ab.add(a);
         a = new RelatorioAbastecimentoModel();
         a.setDate("Total Litros");
         a.setValorLitro((dF.format(tL))+"");
-        a.setCor(Color.BLUE);
+        a.setCor(Color.rgb(135,206,250));
         ab.add(a);
         a = new RelatorioAbastecimentoModel();
         a.setDate("Total km rodado");
         a.setValorLitro((dF.format(tK))+" $");
-        a.setCor(Color.BLUE);
+        a.setCor(Color.rgb(135,206,250));
         ab.add(a);
-        a = new RelatorioAbastecimentoModel();
-        a.setDate("Media geral");
-        a.setValorLitro((dF.format(tK/tL))+"");
-        a.setCor(Color.BLUE);
+
+        a.setCor(Color.rgb(135,206,250));
         ab.add(a);
         return ab;
     }

@@ -88,7 +88,7 @@ public class SelecaoRelatorioActivity extends AppCompatActivity {
     public void relatorioAbastecimento(View v) {
         String dataInicio = dateInicio.getText().toString();
         String dataFim = dateFim.getText().toString();
-        int relatorio = 1;
+        int relatorio = 1;//relatorio abastecimento
         Bundle bundle = new Bundle();
         bundle.putString("dataInicio", dataInicio);
         bundle.putString("dataFim",dataFim);
@@ -100,11 +100,11 @@ public class SelecaoRelatorioActivity extends AppCompatActivity {
     public void relatorioFinancia(View v) {
         String dataInicio = dateInicio.getText().toString();
         String dataFim = dateFim.getText().toString();
-        int relatorio = 1;
+        int relatorio = 2; //relatorio finanças
         Bundle bundle = new Bundle();
-        bundle.putString("email", dataInicio);
-        bundle.putString("",dataFim);
-        bundle.putInt("",relatorio);
+        bundle.putString("dataInicio", dataInicio);
+        bundle.putString("dataFim",dataFim);
+        bundle.putInt("relatorio",relatorio);
         Intent in = new Intent(SelecaoRelatorioActivity.this, RelatorioActivity.class);
         in.putExtras(bundle);
         startActivity(in);

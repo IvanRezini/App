@@ -9,24 +9,18 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.Spinner;
 
 import com.example.administradorfinanceiro.Dao.FinancasDao;
-import com.example.administradorfinanceiro.Dao.PostoDao;
 import com.example.administradorfinanceiro.Model.FinancasModel;
-import com.example.administradorfinanceiro.Model.PostoModel;
 import com.example.administradorfinanceiro.R;
 import com.example.administradorfinanceiro.Utilidades.ManipularData;
 
 import java.text.DecimalFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 
 public class SaqueActivity extends AppCompatActivity {
     Button date;

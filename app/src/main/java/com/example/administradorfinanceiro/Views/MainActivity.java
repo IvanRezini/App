@@ -31,18 +31,11 @@ public class MainActivity extends AppCompatActivity {
         idConta = findViewById(R.id.idConta);
         idSaque = findViewById(R.id.idSaque);
         idAbastecimento = findViewById(R.id.idAbastecimento);
-        idExtratoAbastecimento = findViewById(R.id.idExtartoAbastecimento);
-        idExtratoConta = findViewById(R.id.idExtratoConta);
+       idExtratoConta = findViewById(R.id.idExtratoConta);
         idConfiguracao = findViewById(R.id.idConfiguracao);
         idSair = findViewById(R.id.idSair);
 
 
-        idExtratoAbastecimento.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent it = new Intent(MainActivity.this, RelatorioActivity.class);
-                startActivity(it);
-            }
-        });
         idExtratoConta.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent it = new Intent(MainActivity.this, SelecaoRelatorioActivity.class);

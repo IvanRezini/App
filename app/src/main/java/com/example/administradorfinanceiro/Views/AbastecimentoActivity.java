@@ -350,7 +350,9 @@ Salva o abastecimento no banco de dados
             x= posto.getSelectedItem().toString().trim().split(" ");
         }
        ab.setPosto(Integer.valueOf(x[0]).intValue());
-        ab.setDate(date.getText().toString());
+        ManipularData m = new ManipularData();
+
+        ab.setDate(m.DataBanco(date.getText().toString()));
         ab.setKmPercorido(kmPercorido.getText().toString());
         ab.setValorLitro(valorLitro.getText().toString());
         ab.setLitrosTotal(litroTotal.getText().toString());
@@ -359,7 +361,7 @@ Salva o abastecimento no banco de dados
         FinancasModel f =new FinancasModel();
         f.setEntradaSaida("S");//  private String EntradaSaida;//E entrada S saida N para pagamento em dinheiro no qual ja foi sacado
         f.setIdConta(1);// 1 Significa que não é um abastecimento
-       ManipularData m = new ManipularData();
+
         f.setDate(m.DataBanco(date.getText().toString()));
         f.setValor(valorTotal.getText().toString());
         FinancasDao d = new FinancasDao(this);
