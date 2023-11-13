@@ -92,7 +92,8 @@ public class SaqueActivity extends AppCompatActivity {
         FinancasModel f =new FinancasModel();
         f.setEntradaSaida("S");//  private String EntradaSaida;//E entrada S saida N para pagamento em dinheiro no qual ja foi sacado
         f.setIdConta(0);// 0 Significa que não é um deposito
-        f.setDate(date.getText().toString());
+        ManipularData m = new ManipularData();
+        f.setDate(m.DataBanco( date.getText().toString()));
         f.setValor(valor.getText().toString());
         FinancasDao d = new FinancasDao(this);
         try {

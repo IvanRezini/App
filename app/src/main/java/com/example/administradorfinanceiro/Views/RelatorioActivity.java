@@ -11,6 +11,7 @@ import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -26,9 +27,11 @@ import android.widget.TextView;
 import com.example.administradorfinanceiro.Controller.RelatorioController;
 import com.example.administradorfinanceiro.Dao.RelatorioDao;
 import com.example.administradorfinanceiro.Model.RelatorioAbastecimentoModel;
+import com.example.administradorfinanceiro.Model.RelatorioFinancasModel;
 import com.example.administradorfinanceiro.Model.VeicoloModel;
 import com.example.administradorfinanceiro.R;
 import com.example.administradorfinanceiro.Utilidades.ManipularData;
+import com.example.administradorfinanceiro.Utilidades.SetarMenu;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +44,7 @@ public class RelatorioActivity extends AppCompatActivity {
     private TextView titulo;
     private Button gerar;
     private Spinner selecao;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,40 +53,77 @@ public class RelatorioActivity extends AppCompatActivity {
         this.dataFim = bundle.getString("dataFim");
         this.dataInicio = bundle.getString("dataInicio");
         this.relatorio = bundle.getInt("relatorio");//1 = relatorio abastecimento   2= relatorio finanças
-        this.titulo=(TextView)findViewById(R.id.textTitulo);
-        this.gerar=(Button)findViewById(R.id.idGerar);
-        this.selecao=(Spinner)findViewById(R.id.spinnerSelecao);
+        this.titulo = (TextView) findViewById(R.id.textTitulo);
+        this.gerar = (Button) findViewById(R.id.idGerar);
+        this.selecao = (Spinner) findViewById(R.id.spinnerSelecao);
         HS = (LinearLayout) findViewById(R.id.layoutSc);
 
-       // if (this.relatorio == 1) {
-         //  this.relatorioAbastecimento();
-       // } else if (this.relatorio == 2) {
-          //  this.relatorioFinancia();
-        //}
+        this.caregarRelatorio();
 
     }
-    public void gerarRelatorio() {
+
+    public void caregarRelatorio() {
         this.converterData();
+        //1 = relatorio abastecimento   2= relatorio finanças
+        if (this.relatorio == 1) {
+            this.titulo.setText("Relatoro Abastecimento");
+            SetarMenu set = new SetarMenu();
 
+            ArrayList s = set.spinnerVeicolo(this);
 
+            ArrayAdapter<String> adapterS;
+            adapterS = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, s);
+            selecao.setAdapter(adapterS);
+            // this.relatorioAbastecimento();
+        } else if (this.relatorio == 2) {
+            this.titulo.setText("Relatoro de Contas");
+            SetarMenu set = new SetarMenu();
 
+            ArrayList c = set.spinnerConta(this);
 
-
-
-
-
+            ArrayAdapter<String> adapterC;
+            adapterC = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, c);
+            selecao.setAdapter(adapterC);
+            //this.relatorioFinancia();
+        }
     }
+
+    public void gerarRelatorio(View v) {
+        String aux[];
+        int i = 0;
+        if (selecao.getSelectedItemPosition() > 0) {
+            aux = selecao.getSelectedItem().toString().trim().split(" ");
+            i = (Integer.valueOf(aux[0]).intValue());
+
+        }
+
+        //1 = relatorio abastecimento   2= relatorio finanças
+        if (this.relatorio == 1) {
+            this.titulo.setVisibility(View.GONE);
+            this.selecao.setVisibility(View.GONE);
+            this.gerar.setVisibility(View.GONE);
+            this.relatorioAbastecimento(i);
+        } else if (this.relatorio == 2) {
+            this.titulo.setVisibility(View.GONE);
+            this.selecao.setVisibility(View.GONE);
+            this.gerar.setVisibility(View.GONE);
+            this.relatorioFinancia(i);
+        }
+    }
+
+
     public void converterData() {
         ManipularData m = new ManipularData();
         this.dataFim = m.DataBanco(this.dataFim);
         this.dataInicio = m.DataBanco(this.dataInicio);
     }
 
-    public void relatorioAbastecimento() {
+    public void relatorioAbastecimento(int vei) {
         List<RelatorioAbastecimentoModel> ab = new ArrayList<RelatorioAbastecimentoModel>();
         RelatorioAbastecimentoModel a = new RelatorioAbastecimentoModel();
         RelatorioController control = new RelatorioController();
-        ab = control.rela("0000-00-00", "2023-12-23", 0, this);
+
+        ab = control.relatorioAbastecimento(dataInicio, dataFim, vei, this);
 
         int aux = ab.size();
 
@@ -98,12 +139,14 @@ public class RelatorioActivity extends AppCompatActivity {
             a = ab.get(i);
             TableRow linha = new TableRow(this);
             linha.setBackgroundColor(a.getCor());
+            ManipularData m = new ManipularData();
 
             TextView tex;
             tex = this.coluna();
             tex.setText(a.getVeicolo());
             linha.addView(tex);
             tex = this.coluna();
+          //  tex.setText(m.DataView(a.getDate()));
             tex.setText(a.getDate());
             linha.addView(tex);
             tex = this.coluna();
@@ -126,6 +169,9 @@ public class RelatorioActivity extends AppCompatActivity {
             linha.addView(tex);
             tabela.addView(linha);
         }
+
+        ///comentario
+
         TableRow linha = new TableRow(this);
         TextView ttex = this.coluna();
         ttex.setText(this.dataFim + "  data fim");
@@ -134,7 +180,7 @@ public class RelatorioActivity extends AppCompatActivity {
         ttex = this.coluna();
         ttex.setText(this.dataInicio + " data inicio");
         linha.addView(ttex);
-
+//
         ttex = this.coluna();
         ttex.setText(this.relatorio + "    relatorio");
         linha.addView(ttex);
@@ -146,12 +192,13 @@ public class RelatorioActivity extends AppCompatActivity {
 
     }
 
-    public void relatorioFinancia() {
+    public void relatorioFinancia(int con) {
 
-        List<RelatorioAbastecimentoModel> ab = new ArrayList<RelatorioAbastecimentoModel>();
-        RelatorioAbastecimentoModel a = new RelatorioAbastecimentoModel();
+        List<RelatorioFinancasModel> ab = new ArrayList<RelatorioFinancasModel>();
+        RelatorioFinancasModel a = new RelatorioFinancasModel();
+
         RelatorioController control = new RelatorioController();
-        ab = control.rela("0000/00/00", "2023/12/23", 0, this);
+        ab = control.relatorioFinacas(dataInicio, dataFim, con, this);
 
         int aux = ab.size();
 
@@ -170,28 +217,21 @@ public class RelatorioActivity extends AppCompatActivity {
 
             TextView tex;
             tex = this.coluna();
-            tex.setText(a.getVeicolo());
+            tex.setTextColor(a.getCorTexto());
+            tex.setWidth(50);
+            tex.setText(a.getEntradaSaida()+"");
             linha.addView(tex);
             tex = this.coluna();
-            tex.setText(a.getDate());
+            tex.setTextColor(a.getCorTexto());
+            tex.setText(a.getData());
             linha.addView(tex);
             tex = this.coluna();
-            tex.setText(a.getValorLitro());
+            tex.setTextColor(a.getCorTexto());
+            tex.setText(a.getValor());
             linha.addView(tex);
             tex = this.coluna();
-            tex.setText(a.getLitrosTotal());
-            linha.addView(tex);
-            tex = this.coluna();
-            tex.setText(a.getValorTotal());
-            linha.addView(tex);
-            tex = this.coluna();
-            tex.setText(a.getMedia());
-            linha.addView(tex);
-            tex = this.coluna();
-            tex.setText(a.getKmPercorido());
-            linha.addView(tex);
-            tex = this.coluna();
-            tex.setText(a.getPosto());
+            tex.setTextColor(a.getCorTexto());
+            tex.setText(a.getConta());
             linha.addView(tex);
             tabela.addView(linha);
         }
@@ -207,7 +247,7 @@ public class RelatorioActivity extends AppCompatActivity {
         TextView coluna = new TextView(this);
         coluna.setTextColor(Color.BLACK);
         coluna.setTypeface(null, Typeface.BOLD_ITALIC);
-        coluna.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+        coluna.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
         coluna.setGravity(Gravity.CENTER_HORIZONTAL);
         coluna.setPadding(5, 5, 5, 5);
         coluna.setHorizontalScrollBarEnabled(false);

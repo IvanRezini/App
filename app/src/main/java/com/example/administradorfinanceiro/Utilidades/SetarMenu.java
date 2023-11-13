@@ -9,6 +9,7 @@ import com.example.administradorfinanceiro.Dao.VeicoloDao;
 import com.example.administradorfinanceiro.Model.ContasModel;
 import com.example.administradorfinanceiro.Model.PostoModel;
 import com.example.administradorfinanceiro.Model.VeicoloModel;
+import com.example.administradorfinanceiro.Views.RelatorioActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,4 +61,6 @@ public class SetarMenu {
         }
         return l;
     }
-    }
+
+
+}

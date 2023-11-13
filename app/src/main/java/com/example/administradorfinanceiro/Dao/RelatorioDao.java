@@ -18,7 +18,7 @@ public class RelatorioDao extends ContextoDb {
         super(context);
     }
 
-    public Cursor relatorioAbstecimento(String query) {
+    public Cursor relatorio(String query) {
 
         Cursor c = conexao.rawQuery(query, null);
 

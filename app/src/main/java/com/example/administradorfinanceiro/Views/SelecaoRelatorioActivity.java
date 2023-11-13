@@ -52,7 +52,7 @@ public class SelecaoRelatorioActivity extends AppCompatActivity {
                     public void onDateSet(DatePicker view, int year,
                                           int monthOfYear, int dayOfMonth) {
                         // set day of month , month and year value in the edit text
-                        dateFim.setText(dayOfMonth + "/"
+                        dateInicio.setText(dayOfMonth + "/"
                                 + (monthOfYear + 1) + "/" + year);
                     }
                 }, mYear, mMonth, mDay);

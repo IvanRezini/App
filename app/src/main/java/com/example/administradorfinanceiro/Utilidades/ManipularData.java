@@ -27,7 +27,14 @@ public class ManipularData {
         return dataTxt;
     }
     public String DataBanco(String data){
+
         String []aux = data.split("/");
+       if( aux[1].length()==1){
+           aux[1]="0"+aux[1];
+       }
+        if( aux[0].length()==1){
+            aux[0]="0"+aux[0];
+        }
         return aux[2]+"-"+aux[1]+"-"+aux[0];
     }
     public String DataView(String data){

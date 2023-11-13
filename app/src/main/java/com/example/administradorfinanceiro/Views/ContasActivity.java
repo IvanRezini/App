@@ -192,7 +192,7 @@ public class ContasActivity extends AppCompatActivity {
 
         if (conta.getSelectedItemPosition() == 0) {
             ContasModel nova = new ContasModel();
-            ;
+
             nova.setName(novaConta.getText().toString());
             try {
                 ContasDao contasDao = new ContasDao(this);
@@ -202,19 +202,22 @@ public class ContasActivity extends AppCompatActivity {
                 x[0] = nova.getId() + "";
 
             } catch (Exception ex) {
-                    makeText(this, "Falha ao inserir o nova conta\n" + ex.toString(), LENGTH_LONG).show();
+                    makeText(this, "Falha ao inserir a nova conta\n" + ex.toString(), LENGTH_LONG).show();
             }
         } else {
             x = conta.getSelectedItem().toString().trim().split(" ");
         }
         f.setOrigem(0);//1 - Salario", "2 - Extra", "3 - Doação", "4 - Outro" Origem 5 significa um saque, 0 é uma conta paga
         f.setIdConta(Integer.valueOf(x[0]).intValue());// Id 0 è uma entrada
-        f.setDate(date.getText().toString());
+
+        ManipularData m = new ManipularData();
+        String a =m.DataBanco(date.getText().toString());
+        f.setDate(a);
         f.setValor(valor.getText().toString());
         FinancasDao d = new FinancasDao(this);
         try {
             d.Inserir(f);
-            makeText(this, "Entrada salva", LENGTH_LONG).show();
+            makeText(this, "Entrada salva "+ a, LENGTH_LONG).show();
             limparCampos();
         } catch (Exception e) {
             makeText(this, "Falha ao salvar.\n" + e, LENGTH_LONG).show();
