@@ -105,7 +105,8 @@ public class ReceitaActivity extends AppCompatActivity {
         String x[] = origem.getSelectedItem().toString().trim().split(" ");
         f.setOrigem(Integer.valueOf(x[0]).intValue());//  private int Origem;//1 - Salario", "2 - Extra", "3 - Doação", "4 - Outro" Origem 5 significa um saque
         f.setIdConta(0);// 0 Significa que não é um deposito
-        f.setDate(date.getText().toString());
+        ManipularData m = new ManipularData();
+        f.setDate(m.DataBanco( date.getText().toString()));
         f.setValor(valor.getText().toString());
         FinancasDao d = new FinancasDao(this);
         try {

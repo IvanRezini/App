@@ -39,6 +39,6 @@ public class ManipularData {
     }
     public String DataView(String data){
         String []aux = data.split("-");
-        return aux[0]+"/"+aux[1]+"/"+aux[2];
+        return aux[2]+"/"+aux[1]+"/"+aux[0];
     }
 }

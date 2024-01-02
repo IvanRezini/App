@@ -10,6 +10,7 @@ import com.example.administradorfinanceiro.Model.FinancasModel;
 import com.example.administradorfinanceiro.Model.RelatorioAbastecimentoModel;
 import com.example.administradorfinanceiro.Model.RelatorioFinancasModel;
 import com.example.administradorfinanceiro.Model.VeicoloModel;
+import com.example.administradorfinanceiro.Utilidades.ManipularData;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -55,11 +56,12 @@ public class RelatorioController {
         Monta a cabeça do relatorio
          */
         a.setId(0);
-        a.setData("Data" +inicio);
-        a.setValor("Valor" +fim);
+        a.setEntradaSaida("");
+        a.setData("Data");
+        a.setValor("Valor");
         a.setConta("Conta");
         a.setCor(Color.rgb(0, 255, 255));
-        a.setCorTexto(Color.rgb(0,0,0));
+        a.setCorTexto(Color.rgb(0, 0, 0));
         ab.add(a);
         /*
         Monta o relatoro
@@ -79,9 +81,9 @@ public class RelatorioController {
                 a.setCor(Color.rgb(224, 255, 255));
                 auxCor = 0;
             }
-
+            ManipularData m = new ManipularData();
             a.setId(c.getInt(c.getColumnIndexOrThrow("id")));
-            a.setData(c.getString(c.getColumnIndexOrThrow("data")));
+            a.setData(m.DataView(c.getString(c.getColumnIndexOrThrow("data"))));
             a.setValor(c.getString(c.getColumnIndexOrThrow("valor")));
             a.setOrigem(c.getString(c.getColumnIndexOrThrow("origem")));
             a.setEntradaSaida(c.getString(c.getColumnIndexOrThrow("ensa")));
@@ -95,35 +97,53 @@ public class RelatorioController {
             if (c.getString(c.getColumnIndexOrThrow("ensa")).equals("E")) {
                 a.setCorTexto(Color.rgb(0, 200, 0));
                 tEn += auxL;
+                switch (a.getOrigem()) {
+                    case "1":
+                        a.setConta("Salario");
+                        break;
+                    case "2":
+                        a.setConta("Extra");
+                        break;
+                    case "3":
+                        a.setConta("Doação");
+                        break;
+                    case "4":
+                        a.setConta("Outro");
+                        break;
+                }
             } else if (c.getString(c.getColumnIndexOrThrow("ensa")).equals("S")) {
                 a.setCorTexto(Color.rgb(255, 0, 0));
                 tSa += auxL;
-            }else if (c.getString(c.getColumnIndexOrThrow("ensa")).equals("N")) {
-        a.setCorTexto(Color.rgb(0, 0, 0));
-        tDi += auxL;
-    }
-        ab.add(a);
-    }/*
+            } else if (c.getString(c.getColumnIndexOrThrow("ensa")).equals("N")) {
+                a.setCorTexto(Color.rgb(0, 0, 0));
+                tDi += auxL;
+                a.setConta("Dinheiro");
+            }
+            ab.add(a);
+        }/*
         Monta a rodape do relatorio
          */
         a = new RelatorioFinancasModel();
         a.setCor(Color.WHITE);
         ab.add(a);
         a = new RelatorioFinancasModel();
+        a.setEntradaSaida("");
         a.setData("Dinheiro:");
-        a.setConta((dF.format(tDi)) + " $");
+        a.setValor((dF.format(tDi)) + " $");
         a.setCor(Color.rgb(0, 255, 255));
         a.setCorTexto(Color.rgb(0, 0, 0));
         ab.add(a);
         a = new RelatorioFinancasModel();
+        a.setEntradaSaida("");
         a.setData("Entrada:");
-        a.setConta((dF.format(tEn)) + " $");
+        a.setValor((dF.format(tEn)) + " $");
         a.setCor(Color.rgb(0, 255, 255));
         a.setCorTexto(Color.rgb(0, 100, 0));
         ab.add(a);
         a = new RelatorioFinancasModel();
+        a.setEntradaSaida("");
         a.setData("Saidas:");
-        a.setConta((dF.format(tSa)) + " $");
+        a.setValor((dF.format(tSa)) + " $");
         a.setCor(Color.rgb(0, 255, 255));
         a.setCorTexto(Color.rgb(255, 0, 0));
 
@@ -131,7 +151,7 @@ public class RelatorioController {
 
         return ab;
 
-}
+    }
 
 
     public List<RelatorioAbastecimentoModel> relatorioAbastecimento(String inicio, String fim, int veicolo, Context co)///veicolo id 0 padrão para nem um veicolo selecionado
@@ -234,7 +254,6 @@ public class RelatorioController {
         a.setValorLitro((dF.format(tK)) + " $");
         a.setCor(Color.rgb(135, 206, 250));
         ab.add(a);
-
         a.setCor(Color.rgb(135, 206, 250));
         ab.add(a);
         return ab;

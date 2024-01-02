@@ -211,13 +211,11 @@ public class ContasActivity extends AppCompatActivity {
         f.setIdConta(Integer.valueOf(x[0]).intValue());// Id 0 è uma entrada
 
         ManipularData m = new ManipularData();
-        String a =m.DataBanco(date.getText().toString());
-        f.setDate(a);
-        f.setValor(valor.getText().toString());
+        f.setDate(m.DataBanco( date.getText().toString()));
         FinancasDao d = new FinancasDao(this);
         try {
             d.Inserir(f);
-            makeText(this, "Entrada salva "+ a, LENGTH_LONG).show();
+            makeText(this, "Entrada salva ", LENGTH_LONG).show();
             limparCampos();
         } catch (Exception e) {
             makeText(this, "Falha ao salvar.\n" + e, LENGTH_LONG).show();

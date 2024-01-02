@@ -146,22 +146,26 @@ public class RelatorioActivity extends AppCompatActivity {
             tex.setText(a.getVeicolo());
             linha.addView(tex);
             tex = this.coluna();
-          //  tex.setText(m.DataView(a.getDate()));
             tex.setText(a.getDate());
             linha.addView(tex);
             tex = this.coluna();
+            tex.setWidth(100);
             tex.setText(a.getValorLitro());
             linha.addView(tex);
             tex = this.coluna();
+            tex.setWidth(100);
             tex.setText(a.getLitrosTotal());
             linha.addView(tex);
             tex = this.coluna();
+            tex.setWidth(100);
             tex.setText(a.getValorTotal());
             linha.addView(tex);
             tex = this.coluna();
+            tex.setWidth(100);
             tex.setText(a.getMedia());
             linha.addView(tex);
             tex = this.coluna();
+            tex.setWidth(100);
             tex.setText(a.getKmPercorido());
             linha.addView(tex);
             tex = this.coluna();
@@ -169,23 +173,6 @@ public class RelatorioActivity extends AppCompatActivity {
             linha.addView(tex);
             tabela.addView(linha);
         }
-
-        ///comentario
-
-        TableRow linha = new TableRow(this);
-        TextView ttex = this.coluna();
-        ttex.setText(this.dataFim + "  data fim");
-        linha.addView(ttex);
-
-        ttex = this.coluna();
-        ttex.setText(this.dataInicio + " data inicio");
-        linha.addView(ttex);
-//
-        ttex = this.coluna();
-        ttex.setText(this.relatorio + "    relatorio");
-        linha.addView(ttex);
-        tabela.addView(linha);
-
 
         layout.addView(tabela);
         HS.addView(layout);
@@ -218,7 +205,7 @@ public class RelatorioActivity extends AppCompatActivity {
             TextView tex;
             tex = this.coluna();
             tex.setTextColor(a.getCorTexto());
-            tex.setWidth(50);
+            tex.setWidth(40);
             tex.setText(a.getEntradaSaida()+"");
             linha.addView(tex);
             tex = this.coluna();
@@ -251,7 +238,7 @@ public class RelatorioActivity extends AppCompatActivity {
         coluna.setGravity(Gravity.CENTER_HORIZONTAL);
         coluna.setPadding(5, 5, 5, 5);
         coluna.setHorizontalScrollBarEnabled(false);
-        coluna.setWidth(180);//importante
+        coluna.setWidth(150);//importante
 
         return coluna;
     }
