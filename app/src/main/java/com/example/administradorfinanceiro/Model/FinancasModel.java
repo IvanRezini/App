@@ -1,5 +1,7 @@
 package com.example.administradorfinanceiro.Model;
 
+import android.text.Editable;
+
 public class FinancasModel {
     private int Id;
     private int IdConta; // Id 0 è uma entrada  ID 1 é um abastecimento
@@ -55,4 +57,5 @@ public class FinancasModel {
     public void setEntradaSaida(String entradaSaida) {
         EntradaSaida = entradaSaida;
     }
+
 }

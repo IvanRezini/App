@@ -314,6 +314,7 @@ Verifica se todos os campos estão preechidos
         valorLitro.setText(dF.format((Float.valueOf(valorLitro.getText().toString()).floatValue())) + "");
         valorTotal.setText(dF.format((Float.valueOf(valorTotal.getText().toString()).floatValue())) + "");
         litroTotal.setText(dF.format((Float.valueOf(litroTotal.getText().toString()).floatValue())) + "");
+        kmPercorido.setText(dF.format((Float.valueOf(litroTotal.getText().toString()).floatValue())) + "");
     }
 /*
 Salva o abastecimento no banco de dados
@@ -370,7 +371,7 @@ Salva o abastecimento no banco de dados
            String amm= Ai.Inserir(ab);
             d.Inserir(f);
             String dd=x[0];
-            this.atualizaHodometro();
+           this.atualizaHodometro();
         } catch (Exception e) {
             this.limparCampos();
             makeText(this, "Falha ao inserir o abastecimento", LENGTH_LONG).show();

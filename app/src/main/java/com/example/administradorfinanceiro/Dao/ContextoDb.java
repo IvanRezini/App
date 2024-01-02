@@ -52,14 +52,19 @@ public class ContextoDb extends SQLiteOpenHelper {
 Carega uma lista de contas pre definida
  */
                cv.put("Name",  "Abastecimento");
+               cv.put("Status","A");
                db.insert("tbContas", null, cv);
                cv.put("Name",  "Luz");
+               cv.put("Status","A");
                db.insert("tbContas", null, cv);
                cv.put("Name",  "Agua ");
+               cv.put("Status","A");
                db.insert("tbContas", null, cv);
                cv.put("Name",  "Internet");
+               cv.put("Status","A");
                db.insert("tbContas", null, cv);
                cv.put("Name",  "Mercado");
+               cv.put("Status","A");
                db.insert("tbContas", null, cv);
 
         }catch (Exception e){

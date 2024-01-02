@@ -54,13 +54,26 @@ public class SetarMenu {
         ArrayList<String> l =new ArrayList<String>();
         ArrayAdapter<String> adapter;
         l.add("Selecione uma conta:");
-        for (int i=0; i<list.size();i++){
+        for (int i=1; i<list.size();i++){
             ContasModel vm= new ContasModel();
             vm= list.get(i);
             l.add(" "+vm.getId()+" - "+vm.getName());
         }
         return l;
     }
+    public static ArrayList spinnerContaConfiguracao(Context context) {
+        ContasDao v = new ContasDao(context);
+        List<ContasModel> list = new ArrayList<>();
+        list = v.Lista();
+        ArrayList<String> l = new ArrayList<String>();
+        ArrayAdapter<String> adapter;
+        l.add("Selecione uma conta:");
+        for (int i = 5; i < list.size(); i++) {
+            ContasModel vm = new ContasModel();
+            vm = list.get(i);
+            l.add(" " + vm.getId() + " - " + vm.getName());
+        }
+        return l;
 
-
+    }
 }

@@ -124,7 +124,7 @@ public class ConfigurcaoActivity extends AppCompatActivity {
         campo2.setHint("Nova conta");
         salvar.setVisibility(View.VISIBLE);
         SetarMenu set = new SetarMenu();
-        ArrayList c = set.spinnerConta(this);
+        ArrayList c = set.spinnerContaConfiguracao(this);
         ArrayAdapter<String> adapterP;
         adapterP = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, c);
         selecao.setAdapter(adapterP);
@@ -201,6 +201,8 @@ public class ConfigurcaoActivity extends AppCompatActivity {
                     this.limparCampos();
                     break;
             }
+
+            makeText(this, "Entrada salva", LENGTH_LONG).show();
         }
     }
 

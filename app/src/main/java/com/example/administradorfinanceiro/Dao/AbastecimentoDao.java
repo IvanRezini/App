@@ -24,7 +24,8 @@ public class AbastecimentoDao extends  ContextoDb{
                 " LitrosTotal VARCHAR NOT NULL," +
                 " ValorLitro VARCHAR NOT NULL," +
                 " Date VARCHAR NOT NULL," +
-                " kmPercorido VARCHAR NOT NULL" +
+                " kmPercorido VARCHAR NOT NULL," +
+                " Status VARCHAR NOT NULL"+
                 ");";
         return sql;
     }
@@ -37,14 +38,8 @@ public class AbastecimentoDao extends  ContextoDb{
         contentValues.put("ValorLitro",abastecimentoModel.getValorLitro());
         contentValues.put("Date",abastecimentoModel.getDate());
         contentValues.put("kmPercorido",abastecimentoModel.getKmPercorido());
+        contentValues.put("Status","A");
 
-
-        /* contentValues.put("Veicolo",1);
-        contentValues.put("Posto",2);
-        contentValues.put("LitrosTotal","45");
-        contentValues.put("ValorLitro","4.23");
-        contentValues.put("Date","20/06/2320");
-        contentValues.put("kmPercorido","200");*/
         try{
             msg = "";
             conexao.insertOrThrow("tbAbastecimento",null,contentValues);

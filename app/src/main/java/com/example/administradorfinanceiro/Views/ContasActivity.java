@@ -209,13 +209,13 @@ public class ContasActivity extends AppCompatActivity {
         }
         f.setOrigem(0);//1 - Salario", "2 - Extra", "3 - Doação", "4 - Outro" Origem 5 significa um saque, 0 é uma conta paga
         f.setIdConta(Integer.valueOf(x[0]).intValue());// Id 0 è uma entrada
-
+f.setValor(valor.getText().toString());
         ManipularData m = new ManipularData();
         f.setDate(m.DataBanco( date.getText().toString()));
         FinancasDao d = new FinancasDao(this);
         try {
-            d.Inserir(f);
-            makeText(this, "Entrada salva ", LENGTH_LONG).show();
+            String mg=d.Inserir(f);
+ makeText(this, "Entrada salva", LENGTH_LONG).show();
             limparCampos();
         } catch (Exception e) {
             makeText(this, "Falha ao salvar.\n" + e, LENGTH_LONG).show();

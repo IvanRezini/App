@@ -24,7 +24,8 @@ public class ContasDao extends ContextoDb{
         String sql = " CREATE TABLE IF NOT EXISTS tbContas ("+
                 " Id   INTEGER PRIMARY KEY AUTOINCREMENT" +
                 " UNIQUE NOT NULL," +
-                " Name VARCHAR NOT NULL" +
+                " Name VARCHAR NOT NULL," +
+                " Status VARCHAR NOT NULL"+
                 ");";
 
         return sql;
@@ -33,15 +34,15 @@ public class ContasDao extends ContextoDb{
 
     public String Inserir(ContasModel contasModel){
         ContentValues cv = new ContentValues();
-        cv.put("Name",  "Abastecimento");
         conexao.insert("tbContas", null, cv);
         String msg="";
         ContentValues contentValues = new ContentValues();
         contentValues.put("Name",contasModel.getName());
+        contentValues.put("Status","A");
         try{
             conexao.insertOrThrow("tbContas",null,contentValues);
         }catch (SQLException ex){
-            msg="Falha no cadastro.";
+            msg="Falha no cadastro." + ex;
         }
         return msg;
     }

@@ -117,7 +117,7 @@ public class RelatorioController {
             } else if (c.getString(c.getColumnIndexOrThrow("ensa")).equals("N")) {
                 a.setCorTexto(Color.rgb(0, 0, 0));
                 tDi += auxL;
-                a.setConta("Dinheiro");
+                //a.setConta("Dinheiro");
             }
             ab.add(a);
         }/*
@@ -254,8 +254,7 @@ public class RelatorioController {
         a.setValorLitro((dF.format(tK)) + " $");
         a.setCor(Color.rgb(135, 206, 250));
         ab.add(a);
-        a.setCor(Color.rgb(135, 206, 250));
-        ab.add(a);
+
         return ab;
     }
 }

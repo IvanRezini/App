@@ -24,8 +24,9 @@ public class VeicoloDao extends ContextoDb {
                 "(Id INTEGER PRIMARY KEY AUTOINCREMENT" +
                 " UNIQUE NOT NULL," +
                 " Name VARCHAR NOT NULL," +
-                " Hodometro VARCHAR NOT NULL" +
-                ");";
+                " Hodometro VARCHAR NOT NULL," +
+                " Status VARCHAR NOT NULL"+
+        ");";
         return sql;
     }
 
@@ -34,6 +35,7 @@ public class VeicoloDao extends ContextoDb {
         ContentValues contentValues = new ContentValues();
         contentValues.put("Name", veicoloModel.getName());
         contentValues.put("Hodometro", veicoloModel.getHodometro());
+        contentValues.put("Status","A");
         try {
             conexao.insertOrThrow("tbVeicolo", null, contentValues);
         } catch (SQLException ex) {

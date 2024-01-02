@@ -20,7 +20,8 @@ public class PostoDao extends ContextoDb{
         String sql = " CREATE TABLE IF NOT EXISTS tbPosto ("+
                 " Id INTEGER PRIMARY KEY AUTOINCREMENT" +
                 " UNIQUE NOT NULL," +
-                " Name VARCHAR NOT NULL" +
+                " Name VARCHAR NOT NULL," +
+                " Status VARCHAR NOT NULL" +
                 ");";
         return sql;
     }
@@ -28,6 +29,7 @@ public class PostoDao extends ContextoDb{
         String msg="";
         ContentValues contentValues = new ContentValues();
         contentValues.put("Name",postoMode.getNome());
+        contentValues.put("Status","A");
         try{
             conexao.insertOrThrow("tbPosto",null,contentValues);
         }catch (SQLException ex){
@@ -52,7 +54,7 @@ public class PostoDao extends ContextoDb{
     public List<PostoModel> Lista() {
         List<PostoModel> list = new ArrayList<PostoModel>();
         StringBuffer sql = new StringBuffer();
-        sql.append(" SELECT * FROM tbPosto ");
+        sql.append(" SELECT * FROM tbPosto WHERE Status = 'A' ");
         Cursor result = conexao.rawQuery(sql.toString(), null);
         if (result.getCount() > 0) {
             result.moveToFirst();

@@ -126,7 +126,7 @@ public class RelatorioActivity extends AppCompatActivity {
         ab = control.relatorioAbastecimento(dataInicio, dataFim, vei, this);
 
         int aux = ab.size();
-
+        int i;
         LinearLayout layout = new LinearLayout(this);
         TableLayout tabela = new TableLayout(this);
         tabela.setLayoutParams(new TableLayout.LayoutParams(
@@ -135,7 +135,7 @@ public class RelatorioActivity extends AppCompatActivity {
         tabela.setPadding(5, 5, 5, 5);
         tabela.setHorizontalScrollBarEnabled(false);
 
-        for (int i = 0; i < aux; i++) {
+        for ( i = 0; i < (aux-4); i++) {
             a = ab.get(i);
             TableRow linha = new TableRow(this);
             linha.setBackgroundColor(a.getCor());
@@ -149,28 +149,48 @@ public class RelatorioActivity extends AppCompatActivity {
             tex.setText(a.getDate());
             linha.addView(tex);
             tex = this.coluna();
-            tex.setWidth(100);
+            tex.setWidth(130);
             tex.setText(a.getValorLitro());
             linha.addView(tex);
             tex = this.coluna();
-            tex.setWidth(100);
+            tex.setWidth(130);
             tex.setText(a.getLitrosTotal());
             linha.addView(tex);
             tex = this.coluna();
-            tex.setWidth(100);
+            tex.setWidth(130);
             tex.setText(a.getValorTotal());
             linha.addView(tex);
             tex = this.coluna();
-            tex.setWidth(100);
+            tex.setWidth(130);
             tex.setText(a.getMedia());
             linha.addView(tex);
             tex = this.coluna();
-            tex.setWidth(100);
+            tex.setWidth(130);
             tex.setText(a.getKmPercorido());
             linha.addView(tex);
             tex = this.coluna();
+            tex.setWidth(250);
             tex.setText(a.getPosto());
             linha.addView(tex);
+            tabela.addView(linha);
+        }
+
+        for ( i =aux-4 ;i < aux; i++) {
+            a = ab.get(i);
+            TableRow linha = new TableRow(this);
+            linha.setBackgroundColor(a.getCor());
+            ManipularData m = new ManipularData();
+
+            TextView tex;
+            tex = this.coluna();
+            tex.setWidth(200);
+            tex.setText(a.getDate());
+            linha.addView(tex);
+            tex = this.coluna();
+            tex.setWidth(250);
+            tex.setText(a.getValorLitro());
+            linha.addView(tex);
+
             tabela.addView(linha);
         }
 
@@ -217,6 +237,7 @@ public class RelatorioActivity extends AppCompatActivity {
             tex.setText(a.getValor());
             linha.addView(tex);
             tex = this.coluna();
+            tex.setWidth(240);
             tex.setTextColor(a.getCorTexto());
             tex.setText(a.getConta());
             linha.addView(tex);
@@ -238,7 +259,7 @@ public class RelatorioActivity extends AppCompatActivity {
         coluna.setGravity(Gravity.CENTER_HORIZONTAL);
         coluna.setPadding(5, 5, 5, 5);
         coluna.setHorizontalScrollBarEnabled(false);
-        coluna.setWidth(150);//importante
+        coluna.setWidth(190);//importante
 
         return coluna;
     }

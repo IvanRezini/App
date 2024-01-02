@@ -23,7 +23,8 @@ public class FinancasDao extends ContextoDb{
                 " Origem INTEGER NOT NULL," +
                 " Date VARCHAR NOT NULL," +
                 " Valor VARCHAR NOT NULL," +
-                " EntradaSaida VARCHAR NOT NULL" +
+                " EntradaSaida VARCHAR NOT NULL," +
+                " Status VARCHAR NOT NULL"+
                 ");";
         return sql;
     }
@@ -35,10 +36,11 @@ public class FinancasDao extends ContextoDb{
         contentValues.put("Date",financasModel.getDate());
         contentValues.put("Valor",financasModel.getValor());
         contentValues.put("EntradaSaida",financasModel.getEntradaSaida());
+        contentValues.put("Status","A");
         try{
             conexao.insertOrThrow("tbFinancas",null,contentValues);
         }catch (SQLException ex){
-            msg="Falha no cadastro.";
+            msg="Falha no cadastro.\n"+ex;
         }
         return msg;
     }
