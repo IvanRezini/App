@@ -76,7 +76,7 @@ public class ReceitaActivity extends AppCompatActivity {
         DecimalFormat dF = new DecimalFormat("0.000");
        if(  origem.getSelectedItemPosition() > 0) {
            if (valor.getText().toString().trim().length() > 0) {
-               valor.setText(dF.format((Float.valueOf(valor.getText().toString()).floatValue())) + "");
+               valor.setText(dF.format((Float.valueOf(valor.getText().toString().replaceAll(",", ".")).floatValue())) + "");
                builder.setTitle("Confirmar");
                builder.setMessage( "Data: " + date.getText() + "\nValor: " + valor.getText() +
                        "\nOrigem: "+ origem.getSelectedItem().toString())
@@ -107,7 +107,7 @@ public class ReceitaActivity extends AppCompatActivity {
         f.setIdConta(0);// 0 Significa que não é um deposito
         ManipularData m = new ManipularData();
         f.setDate(m.DataBanco( date.getText().toString()));
-        f.setValor(valor.getText().toString());
+        f.setValor(valor.getText().toString().replaceAll(",", "."));
         FinancasDao d = new FinancasDao(this);
         try {
             d.Inserir(f);

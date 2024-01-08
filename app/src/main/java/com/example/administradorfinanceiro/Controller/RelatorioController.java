@@ -213,11 +213,12 @@ public class RelatorioController {
                 auxCor = 0;
             }
 
+            ManipularData m = new ManipularData();
             a.setVeicolo(c.getString(c.getColumnIndexOrThrow("Veicolo")));
             a.setPosto(c.getString(c.getColumnIndexOrThrow("Posto")));
             a.setLitrosTotal(c.getString(c.getColumnIndexOrThrow("LitrosTotal")));
             a.setValorLitro(c.getString(c.getColumnIndexOrThrow("ValorLitro")));
-            a.setDate(c.getString(c.getColumnIndexOrThrow("Date")));
+            a.setDate(m.DataView(c.getString(c.getColumnIndexOrThrow("Date"))));
             a.setKmPercorido(c.getString(c.getColumnIndexOrThrow("kmPercorido")));
 
             double auxL = (Double.parseDouble(c.getString(c.getColumnIndexOrThrow("LitrosTotal"))));

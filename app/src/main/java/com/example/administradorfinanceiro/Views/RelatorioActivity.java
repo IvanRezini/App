@@ -149,27 +149,27 @@ public class RelatorioActivity extends AppCompatActivity {
             tex.setText(a.getDate());
             linha.addView(tex);
             tex = this.coluna();
-            tex.setWidth(130);
+            tex.setWidth(150);
             tex.setText(a.getValorLitro());
             linha.addView(tex);
             tex = this.coluna();
-            tex.setWidth(130);
+            tex.setWidth(150);
             tex.setText(a.getLitrosTotal());
             linha.addView(tex);
             tex = this.coluna();
-            tex.setWidth(130);
+            tex.setWidth(150);
             tex.setText(a.getValorTotal());
             linha.addView(tex);
             tex = this.coluna();
-            tex.setWidth(130);
+            tex.setWidth(150);
             tex.setText(a.getMedia());
             linha.addView(tex);
             tex = this.coluna();
-            tex.setWidth(130);
+            tex.setWidth(200);
             tex.setText(a.getKmPercorido());
             linha.addView(tex);
             tex = this.coluna();
-            tex.setWidth(250);
+            tex.setWidth(290);
             tex.setText(a.getPosto());
             linha.addView(tex);
             tabela.addView(linha);
@@ -225,19 +225,21 @@ public class RelatorioActivity extends AppCompatActivity {
             TextView tex;
             tex = this.coluna();
             tex.setTextColor(a.getCorTexto());
-            tex.setWidth(40);
+            tex.setWidth(80);
             tex.setText(a.getEntradaSaida()+"");
             linha.addView(tex);
             tex = this.coluna();
+            tex.setWidth(250);
             tex.setTextColor(a.getCorTexto());
             tex.setText(a.getData());
             linha.addView(tex);
             tex = this.coluna();
+            tex.setWidth(250);
             tex.setTextColor(a.getCorTexto());
             tex.setText(a.getValor());
             linha.addView(tex);
             tex = this.coluna();
-            tex.setWidth(240);
+            tex.setWidth(300);
             tex.setTextColor(a.getCorTexto());
             tex.setText(a.getConta());
             linha.addView(tex);
@@ -259,7 +261,7 @@ public class RelatorioActivity extends AppCompatActivity {
         coluna.setGravity(Gravity.CENTER_HORIZONTAL);
         coluna.setPadding(5, 5, 5, 5);
         coluna.setHorizontalScrollBarEnabled(false);
-        coluna.setWidth(190);//importante
+        coluna.setWidth(210);//importante
 
         return coluna;
     }

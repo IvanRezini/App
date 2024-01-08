@@ -94,7 +94,7 @@ public class SaqueActivity extends AppCompatActivity {
         f.setIdConta(0);// 0 Significa que não é um deposito
         ManipularData m = new ManipularData();
         f.setDate(m.DataBanco( date.getText().toString()));
-        f.setValor(valor.getText().toString());
+        f.setValor(valor.getText().toString().replaceAll(",", "."));
         FinancasDao d = new FinancasDao(this);
         try {
             d.Inserir(f);

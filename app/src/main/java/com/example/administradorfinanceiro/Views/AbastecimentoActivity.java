@@ -240,11 +240,14 @@ Verifica se todos os campos estão preechidos
                         if (this.verificar() != "") {
                             if (posto.getSelectedItemPosition() > 0 || novoPosto.getText().length() > 10) {
                                 if (kmPercorido.getText().toString().trim().length() > 0) {
+                                    String aux=kmPercorido.getText().toString().replaceAll(",", ".");
                                     resposta = "Data: " + date.getText() + "\nTotal: " + valorTotal.getText() + "\nlitros de combustivel: " + litroTotal.getText();
                                     resposta += "\nValor do litro: " + valorLitro.getText() + "\nPagamento: " + verificar() + "\nVeicolo: " + veicolo.getSelectedItem().toString();
-                                    resposta += "\nHodometro: " + ((Float.valueOf(String.valueOf(kmPercorido.getText())).floatValue()) + (Float.valueOf((String.valueOf((hodometro.getText()))))));
+                                    resposta += "\nHodometro: " + ((Float.valueOf(String.valueOf(kmPercorido.getText().toString().replaceAll(",", "."))).floatValue())
+                                            + (Float.valueOf((String.valueOf((hodometro.getText().toString().replaceAll(",", ".")))))));
                                     resposta += "\nKm percorido: " + kmPercorido.getText();
-                                    resposta += "\nMedia: " + ((Float.valueOf(String.valueOf(kmPercorido.getText())).floatValue()) / (Float.valueOf((String.valueOf((litroTotal.getText()))))));
+                                    resposta += "\nMedia: " + ((Float.valueOf(String.valueOf(kmPercorido.getText().toString().replaceAll(",", "."))).floatValue())
+                                            / (Float.valueOf((String.valueOf((litroTotal.getText().toString().replaceAll(",", ".")))))));
                                     return resposta;
                                 } else {
                                     makeText(this, "Informe o km percoridos", LENGTH_LONG).show();
@@ -314,7 +317,7 @@ Verifica se todos os campos estão preechidos
         valorLitro.setText(dF.format((Float.valueOf(valorLitro.getText().toString()).floatValue())) + "");
         valorTotal.setText(dF.format((Float.valueOf(valorTotal.getText().toString()).floatValue())) + "");
         litroTotal.setText(dF.format((Float.valueOf(litroTotal.getText().toString()).floatValue())) + "");
-        kmPercorido.setText(dF.format((Float.valueOf(litroTotal.getText().toString()).floatValue())) + "");
+       // kmPercorido.setText(dF.format((Float.valueOf(litroTotal.getText().toString()).floatValue())) + "");
     }
 /*
 Salva o abastecimento no banco de dados
@@ -354,9 +357,9 @@ Salva o abastecimento no banco de dados
         ManipularData m = new ManipularData();
 
         ab.setDate(m.DataBanco(date.getText().toString()));
-        ab.setKmPercorido(kmPercorido.getText().toString());
-        ab.setValorLitro(valorLitro.getText().toString());
-        ab.setLitrosTotal(litroTotal.getText().toString());
+        ab.setKmPercorido(kmPercorido.getText().toString().toString().replaceAll(",", "."));
+        ab.setValorLitro(valorLitro.getText().toString().toString().replaceAll(",", "."));
+        ab.setLitrosTotal(litroTotal.getText().toString().toString().replaceAll(",", "."));
         AbastecimentoDao Ai = new AbastecimentoDao(this);
 
         FinancasModel f =new FinancasModel();
@@ -364,7 +367,7 @@ Salva o abastecimento no banco de dados
         f.setIdConta(1);// 1 Significa que não é um abastecimento
 
         f.setDate(m.DataBanco(date.getText().toString()));
-        f.setValor(valorTotal.getText().toString());
+        f.setValor(valorTotal.getText().toString().toString().replaceAll(",", "."));
         FinancasDao d = new FinancasDao(this);
 
         try {

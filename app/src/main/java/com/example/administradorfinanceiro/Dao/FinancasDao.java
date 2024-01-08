@@ -24,7 +24,7 @@ public class FinancasDao extends ContextoDb{
                 " Date VARCHAR NOT NULL," +
                 " Valor VARCHAR NOT NULL," +
                 " EntradaSaida VARCHAR NOT NULL," +
-                " Status VARCHAR NOT NULL"+
+                " Status VARCHAR "+
                 ");";
         return sql;
     }

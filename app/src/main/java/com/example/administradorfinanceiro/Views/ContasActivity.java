@@ -146,7 +146,7 @@ public class ContasActivity extends AppCompatActivity {
             }
             if (this.verificar() != "") {
                 if (valor.getText().toString().trim().length() > 0) {
-                    valor.setText(dF.format((Float.valueOf(valor.getText().toString()).floatValue())) + "");
+                    valor.setText(dF.format((Float.valueOf(valor.getText().toString().replaceAll(",", ".")).floatValue())) + "");
                     builder.setTitle("Confirmar");
                     builder.setMessage("Data: " + date.getText() + "\nValor: " + valor.getText() +"   "+verificar()+
                             "\n" + aux)
@@ -209,7 +209,7 @@ public class ContasActivity extends AppCompatActivity {
         }
         f.setOrigem(0);//1 - Salario", "2 - Extra", "3 - Doação", "4 - Outro" Origem 5 significa um saque, 0 é uma conta paga
         f.setIdConta(Integer.valueOf(x[0]).intValue());// Id 0 è uma entrada
-f.setValor(valor.getText().toString());
+f.setValor(valor.getText().toString().replaceAll(",", "."));
         ManipularData m = new ManipularData();
         f.setDate(m.DataBanco( date.getText().toString()));
         FinancasDao d = new FinancasDao(this);

@@ -25,7 +25,7 @@ public class ContasDao extends ContextoDb{
                 " Id   INTEGER PRIMARY KEY AUTOINCREMENT" +
                 " UNIQUE NOT NULL," +
                 " Name VARCHAR NOT NULL," +
-                " Status VARCHAR NOT NULL"+
+                " Status VARCHAR "+
                 ");";
 
         return sql;

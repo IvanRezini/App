@@ -25,7 +25,7 @@ public class AbastecimentoDao extends  ContextoDb{
                 " ValorLitro VARCHAR NOT NULL," +
                 " Date VARCHAR NOT NULL," +
                 " kmPercorido VARCHAR NOT NULL," +
-                " Status VARCHAR NOT NULL"+
+                " Status VARCHAR "+
                 ");";
         return sql;
     }

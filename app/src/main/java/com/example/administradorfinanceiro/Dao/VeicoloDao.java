@@ -25,7 +25,7 @@ public class VeicoloDao extends ContextoDb {
                 " UNIQUE NOT NULL," +
                 " Name VARCHAR NOT NULL," +
                 " Hodometro VARCHAR NOT NULL," +
-                " Status VARCHAR NOT NULL"+
+                " Status VARCHAR "+
         ");";
         return sql;
     }
