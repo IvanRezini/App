@@ -9,10 +9,13 @@ public class RelatorioFinancasModel {
     private String conta;
     private int Cor;///cor da linha do RelatorioActivity
     private int CorTexto;///cor da linha do RelatorioActivity
+    private String Obs;
 
-    public int getCorTexto() {
-        return CorTexto;
-    }
+    public String getObs() {return Obs;}
+
+    public void setObs(String obs) {Obs = obs;}
+
+    public int getCorTexto() { return CorTexto; }
 
     public void setCorTexto(int corTexto) {
         CorTexto = corTexto;

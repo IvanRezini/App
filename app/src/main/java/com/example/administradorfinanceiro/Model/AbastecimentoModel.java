@@ -8,6 +8,11 @@ public class AbastecimentoModel {
     private String ValorLitro ;
     private String Date ;
     private String kmPercorido ;
+    private String Obs;
+
+    public String getObs() {return Obs;}
+
+    public void setObs(String obs) {Obs = obs;}
 
     public int getId() {
         return Id;

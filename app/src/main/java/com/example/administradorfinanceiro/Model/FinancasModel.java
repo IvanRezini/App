@@ -9,6 +9,11 @@ public class FinancasModel {
     private String Date;
     private String Valor;
     private String EntradaSaida;//E entrada S saida N para pagamento em dinheiro no qual ja foi sacado
+    private String Obs;
+
+    public String getObs() {return Obs;}
+
+    public void setObs(String obs) {Obs = obs;}
 
     public int getId() {
         return Id;

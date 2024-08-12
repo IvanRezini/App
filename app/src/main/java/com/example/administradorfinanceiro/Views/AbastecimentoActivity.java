@@ -49,6 +49,7 @@ public class AbastecimentoActivity extends AppCompatActivity {
     EditText valorLitro;
     EditText valorTotal;
     EditText novoPosto;
+    EditText obs;
     EditText kmPercorido;
     Spinner posto;
     Spinner veicolo;
@@ -75,6 +76,7 @@ public class AbastecimentoActivity extends AppCompatActivity {
         valorLitro = (EditText) findViewById(R.id.idValorLitro);
         valorTotal = (EditText) findViewById(R.id.idValorTotal);
         kmPercorido = (EditText) findViewById(R.id.idKmRodado);
+        obs = (EditText) findViewById(R.id.idObs);
         radio = (RadioGroup) findViewById(R.id.idFormaPagamento);
         hodometro = (TextView) findViewById(R.id.LabelHodometro);
         pgDinheiro = (RadioButton) findViewById(R.id.radioDinheiro);
@@ -370,6 +372,12 @@ Salva o abastecimento no banco de dados
         f.setValor(valorTotal.getText().toString().toString().replaceAll(",", "."));
         FinancasDao d = new FinancasDao(this);
 
+
+
+   ab.setObs(obs.getText().toString());
+
+
+
         try {
            String amm= Ai.Inserir(ab);
             d.Inserir(f);
@@ -421,6 +429,7 @@ limpa os capos
         valor.setText("");
         litroTotal.setText("");
         valorLitro.setText("");
+        obs.setText("");
         valorTotal.setText("");
         novoPosto.setText("");
         veicolo.setSelection(0);
@@ -435,6 +444,7 @@ limpa os capos
         novoPosto.setVisibility(View.GONE);
         posto.setVisibility(View.GONE);
         radio.setVisibility(View.GONE);
+        obs.setVisibility(View.GONE);
         hodometro.setVisibility(View.GONE);
         salvar.setVisibility(View.GONE);
         label1.setVisibility(View.GONE);
@@ -454,6 +464,7 @@ limpa os capos
         hodometro.setVisibility(View.VISIBLE);
         salvar.setVisibility(View.VISIBLE);
         label1.setVisibility(View.VISIBLE);
+        obs.setVisibility(View.VISIBLE);
         label2.setVisibility(View.VISIBLE);
     }
 

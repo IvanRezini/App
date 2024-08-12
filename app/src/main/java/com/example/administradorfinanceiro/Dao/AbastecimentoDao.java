@@ -25,7 +25,8 @@ public class AbastecimentoDao extends  ContextoDb{
                 " ValorLitro VARCHAR NOT NULL," +
                 " Date VARCHAR NOT NULL," +
                 " kmPercorido VARCHAR NOT NULL," +
-                " Status VARCHAR "+
+                " Status VARCHAR, "+
+                "Obs VARCHAR "+
                 ");";
         return sql;
     }
@@ -38,6 +39,7 @@ public class AbastecimentoDao extends  ContextoDb{
         contentValues.put("ValorLitro",abastecimentoModel.getValorLitro());
         contentValues.put("Date",abastecimentoModel.getDate());
         contentValues.put("kmPercorido",abastecimentoModel.getKmPercorido());
+        contentValues.put("Obs",abastecimentoModel.getObs());
         contentValues.put("Status","A");
 
         try{

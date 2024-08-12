@@ -34,6 +34,7 @@
     <string name="salvar">Salvar</string>
     <string name="cancel">Cancelar</string>
     <string name="gerar">Gerar relatorio</string>
+    <string name="hintobs">Obs.:</string>
 
     <string name="veicolo">Veicolos</string>
     <string name="excluir">Excluir</string>

@@ -24,7 +24,8 @@ public class FinancasDao extends ContextoDb{
                 " Date VARCHAR NOT NULL," +
                 " Valor VARCHAR NOT NULL," +
                 " EntradaSaida VARCHAR NOT NULL," +
-                " Status VARCHAR "+
+                " Status VARCHAR, " +
+                "Obs VARCHAR"+
                 ");";
         return sql;
     }
@@ -35,6 +36,7 @@ public class FinancasDao extends ContextoDb{
         contentValues.put("Origem",financasModel.getOrigem());
         contentValues.put("Date",financasModel.getDate());
         contentValues.put("Valor",financasModel.getValor());
+        contentValues.put("Obs",financasModel.getObs());
         contentValues.put("EntradaSaida",financasModel.getEntradaSaida());
         contentValues.put("Status","A");
         try{

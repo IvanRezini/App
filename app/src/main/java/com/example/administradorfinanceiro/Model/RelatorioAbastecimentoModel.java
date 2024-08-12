@@ -12,7 +12,11 @@ public class RelatorioAbastecimentoModel {
     private String Media;
     private String ValorTotal;
     private int Cor;///cor da linha do RelatorioActivity
+    private String Obs;
 
+    public String getObs() {return Obs;}
+
+    public void setObs(String obs) {Obs = obs;}
     public int getCor() { return Cor; }
 
     public void setCor(int cor) { Cor = cor; }

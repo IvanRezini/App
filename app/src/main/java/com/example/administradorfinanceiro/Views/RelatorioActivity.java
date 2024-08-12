@@ -172,6 +172,10 @@ public class RelatorioActivity extends AppCompatActivity {
             tex.setWidth(290);
             tex.setText(a.getPosto());
             linha.addView(tex);
+            tex = this.coluna();
+            tex.setWidth(290);
+            tex.setText(a.getObs());
+            linha.addView(tex);
             tabela.addView(linha);
         }
 
@@ -242,6 +246,10 @@ public class RelatorioActivity extends AppCompatActivity {
             tex.setWidth(300);
             tex.setTextColor(a.getCorTexto());
             tex.setText(a.getConta());
+            linha.addView(tex);
+            tex = this.coluna();
+            tex.setWidth(290);
+            tex.setText(a.getObs());
             linha.addView(tex);
             tabela.addView(linha);
         }

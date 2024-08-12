@@ -138,6 +138,18 @@
           android:textColorHint="@color/cinzaHint"
           android:textSize="24sp" />
 
+      <EditText
+          android:id="@+id/idObsConta"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:focusable="auto"
+          android:focusableInTouchMode="true"
+          android:hint="@string/hintobs"
+          android:inputType="text"
+          android:textColorHighlight="@color/cinzaHint"
+          android:textColorHint="@color/cinzaHint"
+          android:textSize="24sp" />
+
       <Button
           android:id="@+id/idSalvar"
           android:layout_width="match_parent"

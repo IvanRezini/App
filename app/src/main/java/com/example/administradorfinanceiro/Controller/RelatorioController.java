@@ -35,7 +35,7 @@ public class RelatorioController {
         String auxInicio = inicio;
         String auxFim = fim;
         String query = "SELECT F.Id as id, F.Date as data ,F.Valor as valor, F.Origem as origem, " +
-                "F.EntradaSaida as ensa, C.Name as nomeConta  FROM tbfinancas as F" +
+                "F.EntradaSaida as ensa,F.Obs, C.Name as nomeConta  FROM tbfinancas as F" +
                 " LEFT  JOIN tbContas as C ON F.IdConta = C.Id" +
                 " WHERE data BETWEEN '" +
                 auxInicio + "' AND '" + auxFim + "'";
@@ -60,6 +60,7 @@ public class RelatorioController {
         a.setData("Data");
         a.setValor("Valor");
         a.setConta("Conta");
+        a.setObs("OBS..:");
         a.setCor(Color.rgb(0, 255, 255));
         a.setCorTexto(Color.rgb(0, 0, 0));
         ab.add(a);
@@ -88,6 +89,7 @@ public class RelatorioController {
             a.setOrigem(c.getString(c.getColumnIndexOrThrow("origem")));
             a.setEntradaSaida(c.getString(c.getColumnIndexOrThrow("ensa")));
             a.setConta(c.getString(c.getColumnIndexOrThrow("nomeConta")));
+            a.setObs(c.getString(c.getColumnIndexOrThrow("Obs")));
             a.setCorTexto(Color.rgb(0, 200, 0));
             double auxL = (Double.parseDouble(c.getString(c.getColumnIndexOrThrow("valor"))));
 
@@ -161,7 +163,7 @@ public class RelatorioController {
          */
         String auxInicio = inicio;
         String auxFim = fim;
-        String query = "SELECT V.Name AS Veicolo, P.Name AS Posto, A.LitrosTotal, A.ValorLitro, A.Date, A.kmPercorido FROM" +
+        String query = "SELECT V.Name AS Veicolo, P.Name AS Posto, A.LitrosTotal, A.ValorLitro, A.Date, A.kmPercorido, A.Obs FROM" +
                 " tbAbastecimento AS A " +
                 " JOIN tbPosto AS P ON A.Posto = P.Id " +
                 "JOIN tbVeicolo AS V ON A.Veicolo = V.Id " +
@@ -193,6 +195,7 @@ public class RelatorioController {
         a.setLitrosTotal("LiTotal");
         a.setPosto("Posto");
         a.setVeicolo("Veicolo");
+        a.setObs("OBS..:");
         ab.add(a);
         /*
         Monta o relatoro
@@ -220,6 +223,7 @@ public class RelatorioController {
             a.setValorLitro(c.getString(c.getColumnIndexOrThrow("ValorLitro")));
             a.setDate(m.DataView(c.getString(c.getColumnIndexOrThrow("Date"))));
             a.setKmPercorido(c.getString(c.getColumnIndexOrThrow("kmPercorido")));
+            a.setObs(c.getString(c.getColumnIndexOrThrow("Obs")));
 
             double auxL = (Double.parseDouble(c.getString(c.getColumnIndexOrThrow("LitrosTotal"))));
             double auxV = (Double.parseDouble(c.getString(c.getColumnIndexOrThrow("ValorLitro"))));

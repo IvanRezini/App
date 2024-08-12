@@ -36,6 +36,7 @@ public class ContasActivity extends AppCompatActivity {
     DatePickerDialog datePickerDialog;
     Button salvar;
     EditText valor;
+    EditText obs;
     EditText novaConta;
     Spinner conta;
     RadioGroup formaPagamento;
@@ -50,6 +51,7 @@ public class ContasActivity extends AppCompatActivity {
         date = (Button) findViewById(R.id.idDate);
         salvar = (Button) findViewById(R.id.idSalvar);
         valor = (EditText) findViewById(R.id.idValor);
+        obs = (EditText) findViewById(R.id.idObsConta);
         conta = (Spinner) findViewById(R.id.spinnerConta);
         novaConta = (EditText) findViewById(R.id.idNovaConta);
         formaPagamento = (RadioGroup) findViewById(R.id.idFormaPaga);
@@ -212,6 +214,7 @@ public class ContasActivity extends AppCompatActivity {
 f.setValor(valor.getText().toString().replaceAll(",", "."));
         ManipularData m = new ManipularData();
         f.setDate(m.DataBanco( date.getText().toString()));
+        f.setObs(obs.getText().toString());
         FinancasDao d = new FinancasDao(this);
         try {
             String mg=d.Inserir(f);
